@@ -1,0 +1,64 @@
+22.08.12
+
+vscode 설치
+
+vscode - 터미널 실행 (Ctrl + `)
+
+vscode 확장프로그램  - prettier , live server  설치
+
+prettier 환경설정 - default, save
+
+vscode - html : doc 명령어를 치면 기본 뼈대가 만들어진다.
+
+head, title, body 등 -> html 태그 
+<> 
+태그는 열고 닫아야한다 (ex. <html> </html>)
+
+
+{
+head태그 내에는 브라우저에 대한 정보를 넘겨주는 태그
+
+charset : 문자포맷세팅 (uft-8) 
+http-equiv :  서버호환성에 관한 태그
+content : 브라우저에 코드패치기준 (IE 인터넷익스플로어 = edge)
+name="viewport" : 사용자가 보는관점
+width : 폭 (device ==> 디바이스폭 기준)
+initial-scale : 확대스케일
+} <== 엘리먼트 ( 열린태그 닫는태그 )
+
+
+body태그는 웹페이지의 내용물 담는 태그.
+
+html태그는 head, body태그의 부모이다 <-> head, body태그는 html태그의 자식이다. 
+
+Ctrl + spacebar : 명령어 자동완성창 
+
+div 태그 : 영역
+
+라이브서버 : alt + l + o (해당 파일 작업창에 커서에 있어야 한다.)
+
+vscode에서 특정 파일을 불러오기하려면 어지간하면 해당파일이 담겨있는 폴더로 불러오는게 좋다.
+
+자식태그를 가질수 없는 태그는 따로 닫는태그를 적지않아도 된다.
+
+id라는 속성을 선언해준다. (중복불가)
+class속성 css와 연동하기위해 사용한다.
+
+.클래스명 {} : 클래스명이 정해진 태그에 스타일을 부여해준다.
+#id명 {}  : id명이 정해진 태그에 스타일을 부여한다.
+
+* {} : 전체 태그에 속성스타일을 부여한다.
+
+id, class 해당 속성들은 우선순위가 존재하여 하위 속성값에 설정을 무시 한다.
+
+웹상에서 개발자도구를 사용하여 수정한 내용은 새로고침을 하면 수정 전 웹페이지로 돌아간다.
+
+Ctrl + / : 해당 커서가 있는 줄을 주석처리한다.
+
+총 width : 300px
+box-sizing : border-box: 외부 여백과 내부영역 사이에 content를 포함한 border의 크기를 정한다.
+( border 1px, padding 10px 를 제외한 content 속성  폭크기는 278px)
+
+
+다음주 화요일까지 만들어보고 싶은 페이지 정해오기
+openSea 라는 페이지 접해보기
