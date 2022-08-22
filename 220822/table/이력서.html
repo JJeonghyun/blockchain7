@@ -18,6 +18,11 @@
     table {
       height: 95%;
     }
+    .space {
+      border-bottom: 1px solid #fff;
+      border-left:hidden;
+      border-right: hidden;
+    }
   </style>
   <body>
     <div id="total">
@@ -26,34 +31,53 @@
           <h2>이력서</h2>
         </caption>
         <tbody>
+          <col style="width: 90px" />
           <div>
-            <tr style="border: 3px solid black">
+            <tr rowspan="3" class="space"></tr>
+          </div>
+            <tr style="border: none">
               <td
                 colspan="2"
-                rowspan="6"
+                rowspan="7"
                 style="
-                  border: 2px solid rgb(122, 122, 122);
+                  border: 2px solid #fff;
                   border-left: hidden;
                   border-right: hidden;
-                  border-bottom: 2px solid black;
+                  border-bottom: 2px solid #fff;
                 "
               >
-                <img src="./kakao_12.jpg" alt="이미지" style="height: 100%" />
+                <img
+                  src="./kakao_12.jpg"
+                  alt="이미지"
+                  style="
+                    height: 100%;
+                    border: 3px solid black;
+                    padding-top: 3px;
+                    padding-bottom: 3px;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    float: left;
+                    margin-right: 0;
+                    
+                  "
+                />
               </td>
             </tr>
           </div>
           <div>
             <tr>
+            </tr>
+            <tr style ="border-top:3px solid black;">
               <td style="background-color: rgb(192, 189, 189)">성명</td>
-              <td>장정현</td>
+              <td style="text-align:left">장정현</td>
               <td style="background-color: rgb(192, 189, 189)">영문</td>
-              <td>JangJeongHyun</td>
+              <td style="text-align:left">JangJeongHyun</td>
               <td style="background-color: rgb(192, 189, 189)">한문</td>
               <td style="border-right: hidden">張晶賢</td>
             </tr>
             <tr>
               <td style="background-color: rgb(192, 189, 189)">생년월일</td>
-              <td colspan="3">1994년 02월 14일</td>
+              <td colspan="3" style="text-align:left">1994년 02월 14일</td>
               <td style="background-color: rgb(192, 189, 189)">나이</td>
               <td style="border-right: hidden">29세</td>
             </tr>
@@ -65,22 +89,27 @@
             </tr>
             <tr>
               <td style="background-color: rgb(192, 189, 189)">이메일</td>
-              <td colspan="5" style="border-right: hidden">
+              <td colspan="5" style="border-right: hidden; text-align: left;">
                 ghkdwja9649@gmail.com
               </td>
             </tr>
-            <tr>
+            <tr >
               <td style="background-color: rgb(192, 189, 189)">주소</td>
-              <td colspan="5" style="border-right: hidden">
+              <td colspan="5" style="border-right: hidden; text-align: left;">
                 서울시 송파구 위례 순환로 477
               </td>
             </tr>
           </div>
           <div>
+            <tr class="space">
+              <td colspan="6"></td>
+            </tr>
+          </div>
+          <div>
             <tr
               style="
-                border-top: 2px solid black;
-                border-bottom: 2px solid black;
+                border-top: 3px solid black;
+                border-bottom: 3px solid black;
               "
             >
               <td
@@ -102,10 +131,15 @@
             </tr>
           </div>
           <div>
+            <tr class="space">
+              <td colspan="6"></td>
+            </tr>
+          </div>
+          <div>
             <tr
               style="
-                border-top: 2px solid black;
-                border-bottom: 2px solid black;
+                border-top: 3px solid black;
+                border-bottom: 3px solid black;
               "
             >
               <td
@@ -122,12 +156,12 @@
             </tr>
             <tr>
               <td colspan="2" style="text-align: center; border-left: hidden">
-                재학기간
+                <b>재학기간</b>
               </td>
-              <td colspan="2">학교명 및 전공</td>
-              <td>학점</td>
-              <td>구분</td>
-              <td colspan="2" style="border-right: hidden">소재지</td>
+              <td colspan="2"><b>학교명 및 전공</b></td>
+              <td><b>학점</b></td>
+              <td><b>구분</b></td>
+              <td colspan="2" style="border-right: hidden"><b>소재지</b></td>
             </tr>
             <tr>
               <td colspan="2" style="border-left: hidden">2010.03 ~ 2012.02</td>
@@ -141,7 +175,7 @@
               <td colspan="2">숭실대학교 평생교육원</td>
               <td>-</td>
               <td>수료</td>
-              <td colspan="2" style="border-right: hidden">서울 관악구</td>
+              <td colspan="2" style="border-right: hidden">서울 동작구</td>
             </tr>
             <tr>
               <td colspan="2" style="border-left: hidden">2020.03 ~ 2022.02</td>
@@ -149,6 +183,11 @@
               <td>3</td>
               <td>졸업</td>
               <td colspan="2" style="border-right: hidden">경기 포천</td>
+            </tr>
+          </div>
+          <div>
+            <tr class="space">
+              <td colspan="6"></td>
             </tr>
           </div>
           <div>
@@ -169,11 +208,11 @@
             </tr>
             <tr>
               <td colspan="2" style="text-align: center; border-left: hidden">
-                취득일
+                <b>취득일</b>
               </td>
-              <td colspan="3">자격증/면허증</td>
-              <td>등급</td>
-              <td colspan="2" style="border-right: hidden">발행처</td>
+              <td colspan="3"><b>자격증/면허증</b></td>
+              <td><b>등급</b></td>
+              <td colspan="2" style="border-right: hidden"><b>발행처</b></td>
             </tr>
             <tr>
               <td colspan="2" style="border-left: hidden">2014.04</td>
@@ -195,6 +234,11 @@
             </tr>
           </div>
           <div>
+            <tr class="space">
+              <td colspan="6"></td>
+            </tr>
+          </div>
+          <div>
             <tr>
               <td
                 colspan="8"
@@ -211,10 +255,10 @@
               </td>
             </tr>
             <tr>
-              <td colspan="2" style="border-left: hidden">기간</td>
-              <td colspan="3">활동내용</td>
-              <td>활동구분</td>
-              <td colspan="2" style="border-right: hidden">기관명/업체명</td>
+              <td colspan="2" style="border-left: hidden"><b>기간</b></td>
+              <td colspan="3"><b>활동내용</b></td>
+              <td><b>활동구분</b></td>
+              <td colspan="2" style="border-right: hidden"><b>기관명/업체명</b></td>
             </tr>
             <tr>
               <td colspan="2" style="border-left: hidden">2022.05 ~</td>
@@ -233,6 +277,11 @@
               <td colspan="3">&nbsp;</td>
               <td>&nbsp;</td>
               <td colspan="2" style="border-right: hidden">&nbsp;</td>
+            </tr>
+          </div>
+          <div>
+            <tr class="space">
+              <td colspan="6"></td>
             </tr>
           </div>
           <div>
@@ -272,10 +321,15 @@
             <tr>
               <td>파워포인트</td>
               <td colspan="2">상 □ / 중 □/ 하 ■</td>
-              <td>기타()</td>
+              <td>기타(  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A)</td>
               <td colspan="2" style="border-right: hidden">
                 상 □ / 중 □/ 하 □
               </td>
+            </tr>
+          </div>
+          <div>
+            <tr class="space">
+              <td colspan="6"></td>
             </tr>
           </div>
           <div>
@@ -324,7 +378,7 @@
                   <span>위에 기재한 사항은 사실과 틀림이 없습니다</span><br />
                   <span style="float: right"><b>2022년 08월 22일</b></span
                   ><br />
-                  <span style="float: right"><b>성명 : 장정현 (인)</b></span>
+                  <span style="float: right"><b>성명 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;장 정 현 (인)</b></span>
                 </div>
               </td>
             </tr>
