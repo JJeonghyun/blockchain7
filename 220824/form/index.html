@@ -1,0 +1,194 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      <!-- 
+            사용자가 입력하는 데이터를 서버에 보내주는 태그
+            자세하게는 JavaScript
+            오늘은 모양과 입력만!
+            POST, GET ...., 서버 들어가면 할거고 지금은 존재여부만 알고 있으면 된다.
+            table, ol, ul, 처럼 form 부모로써 쓴다.
+            action 속성은 어디다가 보낼지 서버의 주소를 입력한다.
+            # : 권장사항 ? 이라고 생각하면 된다. W3C에서 주소가 없을 때 넣도록 권장한다. <a href="#"></a> 처럼
+            method 속성은 데이터를 어떤 방식으로 보낼건지 설정한다. << 위에서 얘기한 GET, POST
+            GET은 주소에 입력데이터가 나온다.
+            target << a랑 같다.
+        -->
+      <fieldset>
+        <!--
+            쓰고 싶을 때 써라
+            fieldset 태그는 form 안에 영역을 구분해준다.
+            div 써도 됨
+            style 있어서 넣기만 해도 눈에 보인다?
+        -->
+        <legend>필드셋의 제목</legend>
+        <input type="text" id="text" name="ersar" />
+        <!--
+            input 태그는 이름 그대로 사용자가 데이터를 입력하는 영역
+            type이 너무 많다.
+            text 값은 이름 그대로 글을 적는 설정이다.
+            name 속성은 서버에 보낼 때 어떤 이름을 갖고 있는지, 데이터에 대한 이름을 같이 부른다.
+            JavaScript 쓰면 쓸 일이 없다.......
+            id 속성은 label 태그와 연결하기 위해 사용한다.
+        -->
+        <!-- <label for="text">아무거나 입력해 보세요</label> -->
+        <!--
+            label 태그는 입력 값에 대한 제목을 사용자에게 보여준다.
+            예시 : 성명, 이름, 번호, 메일 등
+            for 속성은 input 태그와 연결하기 위해 사용한다.
+            클릭 시 연결된 input에 입력할 수 있도록 해준다.(focus)
+        -->
+
+        <!-- <label for="text">ID<input type="text" id="text" name="ID" /></label> -->
+
+        <label for="pw">PW<input type="password" id="pw" name="pw" /></label>
+        <!--
+            type 속성이 password 값을 가지는 input 태그는 타입 그대로 비밀번호를 입력 할 수 있게 해준다.
+            입력된 데이터를 알아서 가려준다.
+        -->
+
+        <!-- <label for="tel"
+          >전화번호<input type="tel" id="tel" name="tel"
+        /></label> -->
+        <!-- 필터링 안되서 JavaScript로 필터링 필요 01020529649, 010-2052-9649 -->
+        <div>
+          <label for="number">나이:</label>
+          <input type="number" id="number" name="age" />
+        </div>
+        <!-- <div>
+          <label for="url">주소 :</label>
+          <input type="url" id="url" name="url" />
+        </div> -->
+        <!-- <div>
+          <label for="search">검색어를 입력하세요 :</label>
+          <input type="search" id="search" />
+        </div> -->
+        <div>
+          <label for="email">이메일 :</label>
+          <input type="email" id="email" />
+          <!--
+            이메일은 필터링이 잘 되어 있음, 제대로 작성하지 않으면 받아주지 않음
+          -->
+        </div>
+        <div>
+          <label for="checkbox">동의 하시겠습니까 </label>
+          <input type="checkbox" id="checkbox" checked />
+          <!--
+            checked 속성을 설정하면 체크된 상태로 출력한다.
+          -->
+        </div>
+        <div>
+          좋아하는 과일은 ?
+          <input type="radio" id="radio1" name="radio" />
+          <label for="radio1">사과</label>
+
+          <input type="radio" id="radio2" name="radio" />
+          <label for="radio2">오렌지</label>
+
+          <input type="radio" id="radio3" name="radio" />
+          <label for="radio3">바나나</label>
+
+          <input type="radio" id="radio4" name="radio1" />
+          <label for="radio4">중복되는 과일</label>
+          <!--
+            하나만 선택하는 여러 개의 체크박스
+            중복을 체크할 때 name을 사용한다.
+          -->
+        </div>
+
+        <div>
+          <input type="text" id="text1" />
+          <!--
+            label의 for 속성과 input의 id 속성이 같은 값이면
+            위치와 상관없이 label 클릭 시 input에 입력할 수 있도록 커서가 이동된다.
+          -->
+        </div>
+
+        <input type="file" />
+        <input
+          type="image"
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEA8QDxAPDw0NDw4NEA0PEA8NDg0NFREWFhURFRUYHSggGBolHRUVITEtJSkrLi4uFx82ODMsNygtLisBCgoKDg0OGBAQGi0dICUtLSsuLSstKy0vLS0tLS0rKy0tKy0tLTMwKy01LS0tMC8vKy0wLS0tLS0rLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAgMBBAUGB//EAD0QAAIBAwEGAgcGBAUFAAAAAAABAgMEETEFEiFBUWETcQYHIoGRobEUMlJiwfAjM3LRQoKisuE0VGOS8f/EABsBAQACAwEBAAAAAAAAAAAAAAACBAEDBQYH/8QAOxEAAgECAwUGBQAHCQAAAAAAAAECAxEEITEFEkFRcRNhgZGh8CIyscHhBhQVI0Ki0TM0NXJzgrLC8f/aAAwDAQACEQMRAD8A+kgAwdoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArqVUtf+Sn7Yu/vOZPbOChLddS/RNrzSsSUW9EbQK6VaMtNehYdCnUhUipwd0+KMNWAAJmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3ZXYABjJSqbRw0NZrwzBkoua26v3oW5/fAqqwjLVHG2ptGNej2VF2vq3llyVr68e7LNNko2vmcerXbZGLZ03Zw7FUrRcmecdKS0RdVaFjW32uK1XE69vV34xkua+ZzalBpG1sl/wANdpyX0O3sCtKFeVJ6NXt3rj9v/DXWScN5cDdAB64qAAAAAAAAAAAAAAAAAAAAjOWOJqr1o0acqk9Erv336LvBmUktSiV2u/yOfdXLbNdNs8ZW23jKkrwl2a5JJ+bad/Rdxbhh+LOzC5i+3YvRo2dq8Zl8De8i9h9uV1TfapN8Hp5pZPwt5Fee6nZDAbMNkWzmYrH1a7+OV/p5EEg2RbDItlJ1GSsGyLkGyDZr7Rk7GXIi5GGyDZJVGTsT3y2jUiuGEuOeHU1WzG8XsNjJ0pKUXmjLhc6gNGjXx5G5F5WVp9D12B2hDEqzyly4PoaJRcdSQAOgRAAAAAAAAAAAAAAABq3suH76G0at9H2c9NTmbYpSqYKoo8LPwTTfoicPmRymss6Nja49p+5FdnQ3nl6L5nRPE045bz9/g31qv8KMkWxkCc7lYEWw2RbNLZlINkWGyDZBsmkGyDYbItkbk0g2QbNTaW1be2jvXFajRi9PFnGLl/StZe48Xtb1qWVPKt4VrmXJ48Ci/fL2v9JZoYStXdqUHLwy89PUxKrTh8zse7bIuR8av/WZtCs92hGjQy0oqnT8aq+2Z5T90Toehz23K7pVa32p20pYrK6k4UvC5uNOWj6bq+WTpS2PXpQc6sow1ybzdvfM1wxkJS3YRb77H1VSNuzr4fboc/eJ0p8Sth6ri00XJ07qx3JR5rR6f2MEbOe8t189OzMtfI9zhMR21O/EoaOzMgAsgAAAAAAAAAAAAGMGQQqVFTg5vRK5khTgorCDYkyLZ88rTu8suhmzM5MNmMkWyq5cTNiTZBs87tj042da5VS5pzmsrwqH8eeVye7wi/No8fc+uKn4iVO0qSo5W9OdWMKmOeIJNZ/zfAtUdn4qur06ba56Lzdka5VqcNWfT2yDZhSyk+qT48GRbKBaSMtkWw2RbMk0j596aer+te3n2iFxCMJxhGcau+3SUY4/hpcGnjOOHFss2X6r7Klh15VbmaxlN+DSz/THj8ZHu2yq5rKEJzlwjTjKpJ64jFZfyR0ltPFdnGlGbUVkrWT7s1n6mpYWlvOTWfealjsy3t1ihRpUVz8KEYt+bXF+82JM+ST9aV34u9GlQ+z73Ci1Lf3M/jz97HPGOx9Q2ffQuKNKvTzuVqcakU9Ums4fdae4li9n4jD2lWWvG9/B9/tGzD4inVyhw8DYbMxkVyZiLKsci3Y61jV4o6lZZxLrwfmcG1nxO7bveg12yvNHpNk17SS8Dm4mO7LeIAA9MawAAAAAAAAAAAAYkzJXNnL2xU3cM0uLS+/2RlEWyLZhsi2eGqPM2JHg/WF6f1Nn1Y21vShOtKnGrKpV3nTgpSaSUU05Pg+eNNT5+3tva/8A3Fai/K3s9f8ALB/Nn2682VbVqkKtahRq1aaxCpVpwm4LOcJtdeJt5OhQ2lSw1OPZUU5rWUs8+5cPBroV5YaU296WXJHyXZHqim8O8uYwXOnbrfl/7zwl8Ge12P6DbOtXGVO3VSrHDVWu3WnvLSST9lPySN30k9JLawhGdzNrfbVOnTW/WqNa7q6LK4tpcV1KPRv0qtdoKX2eUlOmszo1Y7lSMdFLCbTXk2Rr4raGIpurNy3NMk1Hlna188s755E6dOjCW6rX9TttmGzDZhs5SRcQbItmGzDZKxKwbK6kVJNNJxkmmno09USbINk0TSPmN76q26rdG5jG3cspVIOVWnH8PB4l8j6Bs6zhb0aVGnnco040454tpLV93qbbZXJl6vjq+IUY1ZXtpp5vm/fMjRw1Ok24K1yMmRTEmRyV0WTaoSO7s2poedos7WzpaHRwUrTKeJjeJu1Y4bXRv4GCy5+8+6T+RWe3i7pMpRd0AAZMgAAAAAAAAAoqP6F5RV1OPttXoL/N9mTjqVNkWw2QbPE1NTakSyYbI5MNmklY+XeuHYtzUq0bmlCpVoxo+DOMIubozU5S3mlyaljP5OPIo9UuwLmFxO6qU50qKpSpR34uEqspOL4J6xWNeuO59XbItnWW1qiwf6ruq2l+Nm76ae+eZoWEj2vaXDZFsyllpLi28JLVvoel2fsWEEpVUpz6PjCPbHM04LZ9XFyap5Jat6L89xtrV4UVeR869LfSans+lGc051KrlGnST3d5pZbb5JZXXVHzat60L9yzGNvGOeEPDk1jo3vZ+h969P8A0NobVtVQk/Cq0W6lvXjHPhTaw0484tYyuyfI+K2fqY2rK4jSqqhTt95b93GtCcNzPHch99yxonFeaPW4TY2GpU7VEpy5tfRcPr3nKq4yrN3i91H230XtKF1aWt1KLbuaFKvuOTxByim4rGM4Z0K+xbdrhFwfWMnn55RtWVtChSpUaS3aVCnCjTj+GnCKjFfBGalQtfqGFSsqUfJP1efqYVas3dyfn9jx+07GVGWG96Mvuz0z2a5M0JM9Nt/EqE3zg4yXnvJfRs8rk8ptPCRw9fdho1dd2qt6HcwdV1ad3roGzBhsMoFotpM7GznxRxqZ1bCWGi1hcpor118LOxc6r+lFZKs8v3L6ET3VP5I9Ec6OiAGP3gEzIAAAAAAAAAKK6LymuuBS2jS7TDTXLPy/FyUdTVkQbJSK2zwVWJZRnJjJHJjJXJ2MtmGzDZFszYzY6mwIJ145/wAKbXnoeolM8TZXTpTjNccPTqnwweop3UZxUotOL0f6eZ7L9H6kOwlTXzJtvvvbP7HKx1OW+pcLWNmcymdXBROscra+1I0k0mpVnpDXd/NLou3P5nZq1Y04uc3ZIrQpynJRirs7U6yNedTJ5K325XisNwn3nHj/AKWjFfbNxNY3txf+Nbr+Ly17jm/tnDbt8+ls/rb1Li2fVvbLzOj6RXqwqMXmTalP8qXFR884fu7nDTIJEjzeMxUsTV32rclyR1aFFUobqGQYJQiVTbctpI3LeXFLuiinE2bTG/ltKMFmTfBJIt4ak5zjFcX78tfA0zlkzsVZpZbeEuLb5I49faMpvEcxh835mptHafivdjwprTrJ9WUU2dHam03U/dUXaC4rj+Pr0MUcNZXnr9Dd8Q3bG9y1CT14J9H/AGOT4goSbnHGuUcXC1Z4eoqkMmvXu6E6lJSjmeoBmer82YPohzAAAAAAARaySAMnOqrDwUtm9d08rK5anPmeK2jg3RqOPDh0/GhapveQbIbxGTIORx3GxvUSxsxkr3jG8LEt0m2YjVlF5hJwf5XjPmuZW5EXM2QcoPei7PuJbt8mTq7QryWHVlj8uIfOKRpqmWyZFs3zr1Klt+Tl1bf1EYRjordMhgwMmMmskYBglGJkXMxibNKmYpUzaWEjdThd3NUpEJcEcWvdSqNpN+HngvxY/wATLdpXe83COmkn1/L/AHNelA3SluqyJU42zZdSRcmQiSKjNjZNs6mxbTj4ktI6d5Gps6zdSXSK4t9EejhFJJJYS4JHW2TgHXn2k/lXq+RUxFWy3VqSAB64ogAAAAAAAAA5t5QxxWj+R0iMo5WHoVsXhY4iG69eD5fh8SUZOLujgzRXJnRu7VriuMfoc+cTxuKwsqU92as/fodCnNSV0UtmHIlKJBoqbptuMkWzLRHAsZuZyYM4MbosYuRGCe6SUSSQuRjEvpwIrCKql7Ffd9p9tPibIw4kM3obu8kjmXl85ezDTnLr5EKlWU9Xw6LQrUDa52yRKNNashCBfFCKJxRobJ3MpG5Y2Uqj6RWr5JF2z9mufGXCHXr5Hdp01FJRWEv3lnS2fsyeJe/PKHPn0/r5XKtavu5R1MUaShFRjovi31ZYAeuhCMIqMVZLgUQACRgAAAAAAAAAAFc5/vkVcXjKWFhvVH0XF+H3ZkVaqS6vocS6lJSb3fZfLTB0asjTrM8fjNr1cTJaKK0X51b8uhaoxsaSqxfPD6PgWOBRWgjXUWtG15No0xqp6ot7nJm44Ed0pzP8T+RBxl+J/HAcoMKLNjBCVSK1aXvKHQb1bfm2yP2cxeJnd7y2V3FaZfkv7lUrqT0SXnxJeCZ8MzvpaGd1FEsy+82/p8AoGxuGd0i5mSpRM7pPdL6VPJG5i5TCm3ojsbP2XjEqnmo9fM2dnWSit5rTTuzfO9szZkai7WrpwXPr3fUpVcR/DEwl8Fy6GQD0xUAAAAAAAAAAAAABGbwm/IhUmoQlN6JN+SuCFSf7/Q1atUhUqmpWrHzeviKmJqOpN5v3boi1TpFlWqadWsV1axRxehmNNLMuRgkTnMhk37XZU5cZeyu+vwOlR2VTjr7T+C+R1sPsnEVVdLdXOWXpr6EJ4iEeNzlUqWUmT8I37imk8RSSXIq3TnYun2NSUL3s2vIiqjeZC12fOq3GnHLWW9EsebNepQcW1JNSXBprDTPbbGtPCpRyvbnicuvZe5fqZ2ns2FZcfZqJezNa+XdHa/YU3h4zT+PVp6dy7msvHzOf+0rVWn8vP7njbKwlVnGEeer5Jc2zs7R9GVjeoZylxpt53u6fJ9tPI7GytnKhDHBzlxnJfJLsjdwX8HsimqFq6vKX8vJJ8+fB6ZpGqttCbqXpvJevvh+T5rOk02mmmuDTWGn0aPS7N2BB27VVYq1cTUudJY9lfq137HZudnUqk4TnHMoNPOmcaKXVfvQ2WMFsdUak3VtNaLo9W1z4eZmvtB1IRUPher/H1PnN3bSpTlTmsODw+j6NdmWWeqPReltonCNZLjTahLvDk/c/9x5y0fE4OMw36tXcNVqunvLwOnRrdtSU/Pr7z8T02PYh7/0MCm8049m18V/wD2ODadCFuRzlxAALJkAAAAAAAAAAAAEZRymupIBpNWYOBduUG0//AKaU5tnqKtKMliSTXcpjYUlx3F78s8xU/R+al+7kt3vvdemZcjiUlmjh2djKo+i5tndtbGFPRZl+J6l8UlwXBdESOtg9mUsP8T+KXN8Oi4ddTTVrSnlogADomk0bn7zFlS36kI8pTSfx4/Ilcass2P8Az6X9T/2nhMRBS2huvR1LfzWN7dqbfc/oeuZEkRPd3ucAEWZMMGTBFkiLMEkam1KW/Qqx603j+pLK+aR4S2fE+iNZ4deB86t9Uea2/H4qUuq8rf1Oxsxvdmunrf8AoemtXml5NfqSK7L+W/cWHY2c74eJF/M+oABeMAAAAAAAAAAAAAAAAAAGDIAAAABp3OrJbJ/6il5v6MA8Rif8RX+ov+Rul/ZPo/oevIgHtjhAwADJFkWACSET5zb6gHnf0g1o/wC7/qdbZmk/D7npLD+XLyX1RYAdTZn93RiXzMAAvmAAAAAAAAAD/9k="
+        />
+        <!-- 
+            버튼을 이미지로 출력할 떄 사용
+            이미지를 넣어서 버튼을 대체한다.
+        -->
+        <button>
+          <img
+            src="data:image/jpeg;base64,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"
+            alt=""
+          />
+        </button>
+        <div>
+          <label for="birthday">생일은</label>
+          <input type="date" id="birthday" />
+        </div>
+
+        <div>
+          <input type="color" />
+        </div>
+        <button type="reset">입력값 초기화</button>
+
+        <textarea cols="30" rows="10"></textarea>
+        <!--
+            textarea는 여러줄을 입력 가능한 input text다
+        -->
+        <div>
+          <select>
+            <!-- select 는 선택하는 입력값, 다만 한칸에 보여준다.-->
+            <option value="seoul">서울</option>
+            <option value="2">경기도</option>
+            <option value="c">강원도</option>
+            <option value="ㅁ">부산</option>
+            <!--
+                option은 선택할 메뉴들, value가 중요하다
+                value는 보낼 데이터이다.
+                option은 select 태그의 자식으로 들어가야한다.
+            -->
+          </select>
+        </div>
+
+        <input type="text" placeholder="ex) 01020529649" autofocus />
+        <!--
+            auto focus 속성은 페이지 진입시 자동으로 커서가 입력할 수 있게 이동시켜 준다.
+        
+    -->
+
+        <!--
+        서버한테 개인정보를 넘겨 준다고 가정해보자.
+        id : wjdgus
+        pw : *****
+        이름 : 장정현
+        직업 : 수강생
+        취미 : 게임
+
+        왼쪽 : 오른쪽
+        name : value
+    -->
+
+        <!-- <div style="cursor: pointer" onclick="">보내기</div> -->
+
+        <button type="submit">
+          <!-- 누르는 거, 이름그대로 -->
+          <!-- 
+                a는 다른 웹페이지로 이동 할 때 사용하고
+                button 은 걍 다써
+                기본적으로 작동하는게 없어서 JavaScript를 넣어야 하지만
+                a 처럼 무조건 작동하는 게 없어서 편함
+                type은 어떠한 작동을 할 것인지 기본 작동을 설정한다.
+                submit은 form 데이터를 보낼 때  사용
+            -->
+          보내기
+        </button>
+      </fieldset>
+    </form>
+    <div>
+      <label for="text1">클릭 테스트</label>
+    </div>
+  </body>
+</html>

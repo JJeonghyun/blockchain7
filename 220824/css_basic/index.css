@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+div {
+  width: 50px;
+  height: 50px;
+}
+.display {
+  display: block;
+  /* block은 블록, div의 기본값, 욕심쟁이, 자기가 너비를 전부 갖거나 옆에 아무도 없어야한다*/
+  display: inline;
+  /* 인라인, span, a 등등의 기본값(block이 아니면 얘로 취급한다.). 욕심이 없다. 옆에 누가 있든 상관이없어서
+        옆에 붙여준다. 자기가 가져야만 하는 영역만 가진다. (width, height 등 무시한다.)*/
+  display: none;
+  /*출력을 하지 않는다. 없는 거로 취급한다.*/
+  display: flex;
+  /*플렉스 박스의 부모이다. 플렉스 박스라고 한다.*/
+  display: grid;
+  /*그리드 박스의 부모이다. 그리드 박스라고 한다.*/
+  display: inherit;
+  /*부모한테 받는다. 부모의 값을 그대로 가져와서 나한테 설정한다.*/
+  display: initial;
+  /*기본값을 설정한다.*/
+  display: unset;
+  /*부모 값을 확인해서 있으면 가져오고 없으면 기본값으로 설정한다. */
+  /* 사용량 flex > block > none >>>> grid >>>>>>>>>>>>>>> 나머지*/
+}
+.wh {
+  width: 100px;
+  height: 100px;
+  width: fit-content;
+  width: min-content;
+  width: max-content;
+}
+/*
+    너비와 높이 이다.
+    단위는 px, %, em, rem, vh, vw 를 많이 쓴다.
+    fit-content 는 갖고 있는 만큼만 차지를 한다.
+    max-content 는 갖고 있는 최대를 차지 한다.
+    min-content 는 갖고 있는 최소를 차지 한다.
+    */
+.fit-content {
+  width: fit-content;
+}
+.min-content {
+  width: min-content;
+  /* 
+        overflow 넘쳤을 때 처리하는 방법이다.
+    */
+  overflow: hidden;
+  /*넘치면 없앤다.*/
+  /* overflow: auto; */
+  /*지가 알아서 조절해서 넘치면 스크롤을 생긴다.*/
+  /* overflow: scroll; */
+  /*무조건 스크롤이 생긴다.*/
+  /* overflow: visible; */
+  /*기본 값이다. 그냥 보여준다.*/
+}
+.max-content {
+  width: max-content;
+}
+.text {
+  font-size: 50px;
+  /* 글씨의 크기다. PC, 크롬 기준 기본값이다. 16px*/
+  /* 기본값은 모바일, pc, 브라우저에 따라서 달라 질 수 있다.*/
+  font-weight: normal;
+  /* 글씨의 굵기다.*/
+  /* 기본값은 500이고 글꼴을 따라간다. 글꼴에 영향을 받는다. << 글꼴에서 지원하지 않는 굵기는 무시.*/
+  font-style: normal;
+  /*!?*/
+  color: #00ff00;
+  /* 
+    글씨 색깔이다.
+    rgb(), rgba(), #, hcl, ... 등등 으로 설정이 가능하다.
+    red, green, blue, alpha의 약자
+    #은 16진수로 설정한다.
+    */
+
+  /*text-align 은 글자의 정렬, 배치이다.*/
+  text-align: center; /*가운데 정렬*/
+  text-align: start; /*시작에(왼쪽) 정렬*/
+  text-align: end; /*끝에 (오른쪽) 정렬*/
+  text-align: justify; /*균등 정렬, 한글 파일로 비유하자면 양쪽 정렬이랑 비슷하다.*/
+  text-decoration: dashed line-through red;
+  /* 텍스트에 줄 긋기 (daseed line-through : 점선으로 긋기)*/
+  text-decoration: none;
+  /*a 태그 사용할 때 밑줄 없애기*/
+  letter-spacing: 50px;
+  /* 글짜 사이 조절 하기, 글짜 간격*/
+}

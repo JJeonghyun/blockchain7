@@ -1,0 +1,118 @@
+220824
+
+비NCS) 스마트 웹 프론트엔드 개발
+
+form 태그와 css/stylesheet
+
+form 태그 : 사용자가 입력하는 데이터를 서버에 보내주는 태그. 
+            table, ol, ul 처럼 form 부모 태그로써 사용한다.
+            action 속성은 입력한 데이터를 보낼 주소를 입력하는 속성이다.
+            action="#" 은 권장사항이라고 생각하면 된다. W3C에서 주소가 없을 때 넣도록 권장한다.
+            <a href="#"></a>
+            method 속성은 데이터를 어떤 방식으로 보낼지 설정 하는 속성이다. 그 값으로는
+            POST, GET, ...등 method 속성값으로 넣을 수 있다. 그 중 GET은 주소에 입력데이터가 나온다.
+            target << a 태그랑 같다.
+
+form > fieldset 태그 : form 태그 안에 영역을 구분해준다. 사용하지 않고 div를 써도 되긴 하다.
+                       따로 style 속성에 설정 값을 주지 않아도 기본값으로 적용 되어 있는 설정 값이 있다
+
+fieldset > legend 태그 : fieldset 태그의 제목으로 텍스트를 설정 할 수 있는 제목 태그 이다.
+
+form > input 태그 : 사용자가 데이터를 입력하는 영역. type 종류는 정말 많다.
+
+                    그 중 text는 글을 적을 수 있는 텍스트 창을 제공해주는 type 속성 값이다.
+                    name 속성은 서버에 보내는 데이터의 이름을 설정 하고, 그 이름을 같이 부른다.
+                    id 속성은 label 태그와 연결하기 위해 사용한다. 
+
+                    type 속성에 password 값을 설정하면 input 태그는 비밀번호를 입력 할 수 있는데
+                    이때 입력된 데이터가 출력화면에 *** 로 나타내어 준다.
+
+                    type 속성에 tel 로 설정 한다면 전화번호를 입력 할 창이 나타나는데, 필터링이 필요하다
+                    01020529649 / 010-2052-9649 처럼 나뉘기 떄문에 추후에 JS를 이용해야 필터링이 가능하다
+                    
+                    url, search도 이용하여 http 주소나 검색창을 설정 값으로 부여 할 수 있다.
+                    
+                    email 설정 값은 필터링이 잘 적용되어 있어서 제대로 작성하지 않으면 받아주지 않고 경고!
+                    
+                    type 속성에 checkbox 설정 값은 말처럼 기본적으로 조그만한 네모에 클릭 시 체크 할 수 있는
+                    영역을 출력해 준다.
+                    
+                    type 속성에 radio 설정 값은 하나만 선택할 수 있는 여러 개의 체크박스 형식이다.
+                    같은 name 중에서는 중복을 허용하지 않는데 
+                    중복을 허용하고 싶다면 name을 사용하여 선택 할 수 있다.
+
+                    그 밖에 form 태그 안이 아니라 외부 영역에서도 label의 for 속성과 input id 속성 값들이
+                    서로 같다면 위치와 상관없이 label 클릭 시 input으로 커서가 이동된다.
+
+form > label 태그 : 입력 값에 대한 제목(텍스트)을(를) 사용자에게 보여준다.
+                    예시로 성명 : 텍스트창, 이름 : 텍스트창, 번호 : 숫자입력창 등
+                    for 속성은 input 태그와 연결하기 위해 사용 한다.
+                    클릭 시 연결된 input에 입력 할 수 있도록 해준다.(focus)
+
+form > button 태그 : 버튼을 생성하여 누를 수 있는 창을 생성한다.
+                    기본적으로 작동하는게 없어서 JS를 넣어야 하지만 a 처럼 무조건 작동하는 게 없어서 편하다
+                    type 속성에는 어떠한 작동을 할 것인지 기본 작동을 설정한다.
+                    submit 값은 form 데이터를 보낼 때 사용한다.
+                    a와 다른점은 a 링크 태그는 다른 웹페이지로 이동 할 때 사용하고
+                    button 은 어지간하면 다 사용 한다.
+
+form > textarea 태그 : 여러 줄을 입력 가능한 input text 이다.
+
+form > select 태그 : 선택하는 입력값 이다. 다만 한칸에 보여준다.
+select > option 태그 : 선택할 메뉴들이고 특히 value가 매우 중요하다.
+                       value는 보낼 데이터를 의미한다.
+                       option은 select 태그의 자식으로 들어 가야 한다.
+
+autofocus 설정 값 : <input type="text" placeholder="**" autofocus> 라고 선언한다면
+                    해당 페이지 진입시 로드가 완료되면 자동으로 커서가 바로 입력 할 수 있도록 이동시켜 준다.
+
+css/stylesheet 
+
+display : block => div의 기본값, 욕심이 많아 가로 너비를 전부 차지 한다. 아무도 올 수가 없다.
+display : inline => 인라인, span, a 등등의 기본 값으로 설정 되어 있다.(block 설정이 아니라면 인라인으로 취급한다.)
+                    욕심이 없는 설정 값이다. 옆에 누가 와도 되고 옆에 붙여서 보여진다. 자기가 가진 영역만 갖는다.
+                    (width, height 등 영향 받지 않는다.)
+display : none => 출력을 하지 않는다. 없다고 취급 한다.
+display : flex => 플렉스 박스의 부모이다. 플렉스 박스라고 명칭한다.
+display : grid => 그리드 박스의 부모이다. 그리드 박스라고 명칭한다.
+display : inherit => 부모한테 받는다. 부모의 값을 그대로 가져와서 나에게, 나한테 설정한다.
+display : initial => 기본 값으로 설정 한다.
+display : unset => 부모 값을 확인해서 있으면 받아오고, 없으면 기본값으로 설정한다
+
+display 설정값 사용빈도 수 : flex > block > none >>>>> grid >>>>>>>>>>> 나머지
+
+너비 와 높이 : 단위는 px, %, em, rem, vh, vw를 많이 사용한다. 
+              fit-content 는 가지고 있는 만큼만 차지를 한다.
+              max-content 는 갖고 있는 최대를 차지 한다.
+              min-content 는 가지고 있는 최소를 차지 한다.
+
+overflow : 선언된 너비와 높이 보다 넘쳤을 때 어떻게 처리 할지 설정 하는 방법이다.
+
+overflow : hidden => 넘치면 없애버리겠다 라는 설정 값이다.
+overflow : auto => 해당 크기보다 넘치면 알아서 스크롤이 생긴다.
+overflow : scroll => 무조건 스크롤을 생성한다.
+overflow : visible => 기본 값이다. 그냥 보여 준다.
+
+font-size : 글씨의 크기를  설정하는 방법이다. PC, 크롬 기준 기본값은 16px이다.
+            기본값은 PC, mobile, brower 등 에 따라 달라 질 수 있다.
+font-weight : 글씨의 굵기를 조절 하는 방법이다. 기본 값으로는 500이고 글꼴을 따라 영향을 받는다
+              글꼴이 지원되지 않는 굵기는 무시해버린다.
+color : 글씨 색깔 조절 이다.
+        rgb(), rgba(), #, hcl ... 등 으로 설정이 가능하다.
+        red, green, blue, alpha의 약자
+        #은 16진수로 2개씩 끊어서 rgb순으로 적용 된다.
+
+text-align : 글자의 정렬, 배치 설정하는 방법이다.
+text-align : center => 가운데 정렬 
+text-align : start => 시작에(왼쪽) 정렬
+text-align : end => 끝에(오른쪽) 정렬
+text-align : justify => 균등정렬, 한글 문서로 비유하면 양쪽 정렬과 비슷한 느낌으로 일단은 생각하면 된다.
+
+text-decoration : 텍스트에 줄을 어떠한 방법으로 그을 지 설정 하는 방법이다.
+text-decoration : dashed line-through red; => 빨간 점선으로 가운데를 그어버린다고 설정.
+text-decoration : none ; => 설정 값들을 없애기 위해 사용한다. 주로 a 태그 사용 할 때 사용한다.
+letter-spacing : 50px; => 글자 사이 조절하기, 글자 간격을 조절 하는 방법이다.
+
+link 태그 : 다른 파일을 가져오는 태그이다.
+            주로 css파일이나 favicon을 가져올 때 사용한다.
+            favicon은 브라우저 탭에 작은 아이콘을 뜻 한다.
