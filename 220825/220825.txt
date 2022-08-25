@@ -1,0 +1,141 @@
+background-color: 배경색 넣기
+
+background-color: url(#) => 배경 이미지의 크기 지정, 이미지가 다 보이도록 하되 최대 크기 (비율 맞춤)
+
+background-size: contain => 배경 이미지의 크기 지정, 이미지가 다 보이도록 하되 최대 크기 (비율 맞춤
+background-size: cover => 배경 이미지 크기 지정, 최대 크기(비율 맞춤), 이미지가 짤릴 수 있음
+
+background-size: 100px 100px; => 배경 이미지 사이즈, 너비 높이 순
+
+background-position: center => 배경 이미지 위치 가운데 정렬
+
+background-repeat:  = >배경 이미지 반복 여부, 반복한다. 기본 설정값 이다.
+background-repeat: no-repeat; =>배경 이미지 반복 여부, 반복하지 않는다
+background-repeat: repeat-x; =>배경 이미지 반복 여부, x축으로만 반복 하겠다.
+background-repeat: repeat-y; =>배경 이미지 반복 여부, y축으로만 반복 하겠다.
+
+
+border-radius : 10px => 외곽선의 모서리를 깎는다. 반지름을 입력한다
+border: 1px solid black; => 외곽선을 그린다. 정말 자주 쓰는 것이다
+border: 10px dashed red; => 외곽선을 점선으로 그린다
+border: 10px double blue; => 외곽선을 두줄로 그린다
+border: 10px dotted violet; => 외곽선을 점으로 찍는다
+border: none; => 외곽선 삭제
+
+
+
+display: flex;
+ustify-content: center; => flex의 주축이라고는 하는데...
+                           진행하는 방향에 대한 정렬 방식이다.
+
+justify-content: flex-start; => flex가 시작하는 위치(왼쪽)
+justify-content: flex-end; => flex가 끝나는 위치(오른쪽)
+justify-content: space-between; => 양끝을 맞추고 나머지는 균등 정렬
+justify-content: space-around; => 균등 정렬인데, 양끝에 여백이 적다.
+justify-content: space-evenly; => 그냥 균등 정렬(겉으로 보기에 모든 margin이 같다) 
+
+align-items: center; => flex의 진행하는 방향의 직각, 수직에 대한 정렬
+align-items: stretch; => 늘려준다.
+
+flex-wrap: wrap; => 넘쳤을 때 줄이지 않고 다음줄로 
+                      기본 값은 nowrap
+
+flex-direction: row; => 가로 진행 방향
+flex-direction: column; => 세로 진행 방향
+
+
+
+
+
+width: 5000px;
+height: 5000px;
+border: 1px solid black;
+position: relative;
+
+이전 영역의 위치를 기준으로 한다.
+inline-block, float 처럼 연속되는 영역을 기준으로 ?
+흐름에 맞춰서 한다.
+첫 번째 자식이면 부모의 좌측 상단(top, left)를
+기준으로
+첫 번째 자식이 아니면 이전 형제의 좌측 상단(top, left)을 기준으로
+만약에 block이면 좌측하단(left, bottom)에 맞춘다.
+
+width: 100px;
+height: 100px;
+background-color: blue;
+position: absolute;
+
+이전 영역과 같은 위치를 기준으로 한다.
+부모의 좌측 상단(top, left)을 기준으로
+절대적 위치 (흐름을 맞추지 않고, 위치를 정한다.)
+부모의 position이 있어야 한다.
+없으면 자기의 부모의 부모(할아버지) 영역을 확인한다.
+
+position: relative;
+position: fixed; => 브라우저 기준 
+position: sticky; => 설정된 위치 밖으로 나가지 못하도록 막는다.
+상단, 우측, 하단, 좌측
+top: 100px;
+right: 100px;
+bottom: 100px;
+left: 100px;
+
+
+
+
+
+p.pseudo::after 
+
+    가상 클래스
+    의사 요소
+    가짜임, 넣어 준다.
+    marker
+    li 등등에서 기본값으로 사용된다.
+
+    ::after 는 태그의 마지막 자식으로 넣어준다. 
+
+p.pseudo::before 
+  첫 자식으로 넣어준다.
+
+
+
+input.pseudo::placeholder 
+  
+    placeholder 에 대한 스타일 적용
+    
+  color: red;
+
+
+의사 요소는 ::  ||  의사 스타일은 : 
+
+의사 스타일
+a:link {
+  a 링크에 대한 스타일을 적용한다.
+  color: brown;
+
+a:visited 
+  이동 했던 적이 있던 링크에 스타일을 적용한다. 
+  color: cadetblue;
+
+
+.pseudo:hover 
+마우스가 올라가 있을 떄
+  font-size: 30px;
+
+.pseudo:active 
+   클릭하고 있을 떄
+  font-size: 50px;
+
+
+.pseudo:first-child 
+자기가 부모의 첫번째 자식이면
+  background-color: lightblue;
+
+.pseudo:last-child 
+자기가 부모의 마지막 자식이면
+  background-color: lightgoldenrodyellow;
+
+.pseudo:nth-child(2n) 
+자기가 부모의 n번째 자식이면
+  background-color: lightpink;
+

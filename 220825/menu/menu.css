@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.root {
+  background-color: chocolate;
+  padding-bottom: 20px;
+  height: 750px;
+}
+.title {
+  width: 15%;
+  margin: auto;
+}
+.whiteinfo {
+  color: white;
+  text-align: center;
+}
+.titleimg {
+  width: 40px;
+  height: 50px;
+  background-color: chocolate;
+}
+.htitle,
+.sinfo,
+.titlediv {
+  text-align: center;
+  display: inline-block;
+}
+.sinfo {
+  font-size: 8px;
+}
+.menu-box {
+  background-color: white;
+  padding: 10px 10px;
+  height: 90%;
+}
+.event-title {
+  display: inline;
+  background-color: red;
+  color: white;
+  font-weight: 900;
+}
+.event-info {
+  display: inline;
+  font-weight: 900;
+}
+span {
+  color: red;
+  font-weight: 900;
+}
+.cutlet {
+  display: inline-block;
+  width: 60%;
+  height: 100%;
+}
+.set {
+  display: inline-block;
+  width: 39%;
+
+  height: 100%;
+}
+.cutlet-title {
+  display: inline;
+}
+.cutlet-flex {
+  display: flex;
+  border: 1px solid black;
+
+  width: 95%;
+  height: 93%;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.set-flex {
+  display: flex;
+  border: 1px solid black;
+
+  width: 100%;
+  height: 93%;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  display: flex;
+  border: 1px solid blue;
+  width: 50%;
+  height: 30%;
+  margin-bottom: 10px;
+}
+.set-item {
+  display: flex;
+  border: 1px solid blue;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 10px;
+}
+.info-img {
+  width: 40%;
+  height: 100%;
+}
+.info-title {
+  display: inline;
+  writing-mode: vertical-rl;
+  font-size: 18px;
+}
+.info {
+  display: inline;
+  padding: 0 30px;
+}
+.price {
+  word-break: break-all;
+  padding: 0 10px;
+  font-size: 23px;
+}
+.inner-info {
+  font-size: 16px;
+  text-align: justify;
+}
+.set-info {
+  font-size: 19px;
+  text-align: justify;
+}

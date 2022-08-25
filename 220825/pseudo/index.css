@@ -1,0 +1,57 @@
+p.pseudo::after {
+  /* 
+    가상 클래스
+    의사 요소
+    가짜임, 넣어 준다.
+    marker
+    li 등등에서 기본값으로 사용된다.
+
+    ::after 는 태그의 마지막 자식으로 넣어준다. 
+    */
+  content: "블라블라end";
+}
+p.pseudo::before {
+  /* 첫 자식으로 넣어준다.*/
+  content: "블라블라";
+}
+
+input.pseudo::placeholder {
+  /*
+    placeholder 에 대한 스타일 적용
+    */
+  color: red;
+}
+
+/* 의사 요소는 ::  ||  의사 스타일은 : */
+
+/* 의사 스타일 */
+a:link {
+  /* a 링크에 대한 스타일을 적용한다. */
+  color: brown;
+}
+a:visited {
+  /* 이동 했던 적이 있던 링크에 스타일을 적용한다. */
+  color: cadetblue;
+}
+
+.pseudo:hover {
+  /* 마우스가 올라가 있을 떄*/
+  font-size: 30px;
+}
+.pseudo:active {
+  /* 클릭하고 있을 떄*/
+  font-size: 50px;
+}
+
+.pseudo:first-child {
+  /* 자기가 부모의 첫번째 자식이면 */
+  background-color: lightblue;
+}
+.pseudo:last-child {
+  /* 자기가 부모의 마지막 자식이면 */
+  background-color: lightgoldenrodyellow;
+}
+.pseudo:nth-child(2n) {
+  /* 자기가 부모의 n번째 자식이면 */
+  background-color: lightpink;
+}
