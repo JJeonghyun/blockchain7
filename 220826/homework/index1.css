@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.root {
+  margin: 0 4%;
+}
+.title-inner-box {
+  width: 70%;
+  margin: 0 20%;
+  padding: 50px 0;
+}
+.title-inner-flex {
+  display: flex;
+  width: 100%;
+
+  justify-content: space-between;
+  align-items: center;
+}
+.title-inner-item {
+  font-size: 24px;
+  color: lightgray;
+  display: inline;
+  padding: 5px;
+}
+
+.title-inner-item:first-child {
+  border: 4px solid black;
+  color: black;
+  font-size: 20px;
+  font-weight: 650;
+}
+.next-page {
+  text-decoration: none;
+  color: lightgray;
+}
+.homepage {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 650;
+}
+.next-page:hover {
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+}
+.stitle-inner-box {
+  width: 300px;
+  margin: auto;
+}
+.stitle-item {
+  width: 100%;
+  margin: auto;
+  font-size: 48px;
+  padding: 30px 0;
+  color: black;
+  font-weight: 500;
+}
+.mid-flex {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  flex-wrap: wrap;
+}
+.mid-item {
+  width: 650px;
+  height: 900px;
+  justify-content: center;
+  align-items: center;
+}
+.mid-item:last-child {
+  height: 500px;
+}
+.mid-item > img {
+  width: 600px;
+  height: 800px;
+}
+.flex-box {
+  display: flex;
+  width: 500px;
+  margin: 0 75 75 75;
+
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.flex-item {
+  font-size: 48px;
+  min-width: 275px;
+  max-width: 280px;
+  display: inline;
+  padding: 5px;
+  text-align: center;
+}
+.flex-item:first-child {
+  font-size: 40px;
+  font-weight: 650;
+  width: 100%;
+}
+.flex-item:nth-child(2) {
+  font-size: 30px;
+}
+.flex-item:last-child {
+  font-size: 20px;
+}
+.flex-text {
+  color: grey;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.img-flex {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.img-item {
+  min-width: 150px;
+  min-height: 50;
+  max-height: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+.img-item:nth-child(n) > img {
+  width: 250px;
+}
