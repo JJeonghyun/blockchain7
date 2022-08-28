@@ -5,6 +5,7 @@
 }
 .root {
   margin: 0 4%;
+  padding-top: 150px;
 }
 .title-box {
   position: fixed;
@@ -13,10 +14,11 @@
   right: 0;
 
   background-color: white;
+  z-index: 2;
 }
 .title-inner-box {
   width: 70%;
-  margin: 0 20%;
+  margin: 0 15%;
   padding: 50px 0;
 }
 .title-inner-flex {
@@ -42,6 +44,7 @@
 .video-box {
   margin: auto;
   width: 100%;
+  margin-top: 10px;
 }
 .video-flex {
   display: flex;

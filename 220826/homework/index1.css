@@ -5,6 +5,7 @@
 }
 .root {
   margin: 0 4%;
+  padding-top: 150px;
 }
 .title-box {
   position: fixed;
@@ -52,6 +53,7 @@
 }
 .next-page:hover {
   color: black;
+  text-decoration: underline;
 }
 a:visited {
   text-decoration: none;
