@@ -1,11 +1,10 @@
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 .root {
   margin: 0 4%;
-  height: 800px;
   padding-top: 150px;
 }
 .title-box {
@@ -56,64 +55,43 @@
   color: black;
   text-decoration: underline;
 }
-
 a:visited {
   text-decoration: none;
 }
-.video-title {
-  font-size: 48px;
-  width: 100%;
-  margin: 10px 10% 30px 10%;
-  font-weight: 350;
-  color: gray;
+.body-box {
+  background-color: gray;
 }
-.music-video {
-  display: flex;
-  width: 100%;
-
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.video-item {
-  width: 100%;
+.content {
+  width: 30%;
+  margin: 0 auto;
+  color: white;
   text-align: center;
-  margin: 10px;
 }
-.video-item:first-child {
-  margin-top: 30px;
-  font-size: 18px;
-  color: gray;
+.line {
+  display: inline;
+  border-right: 1px solid white;
 }
-.short-line {
-  width: 20px;
-  margin: 10px 0;
+.content-title {
+  font-size: 3em;
+  padding-top: 100px;
+  padding-bottom: 20px;
 }
-/* .video-item:first-child:after {
-  content: "";
-  display: block;
-  width: 20px;
-  border-bottom: 1px solid gray;
-  margin: 20px auto;
-} */
-
-.video-item:nth-child(3) {
+.content-body {
+  font-size: 1.5em;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+.content-area {
+  background-color: gray;
+  color: white;
   width: 100%;
-
-  font-size: 32px;
-  color: gray;
+  border: 1px solid white;
+  margin: 5px 0;
+  padding: 5px 10px;
 }
-.etc-flex {
-  display: flex;
-  width: 100%;
-
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
+input::placeholder {
+  color: white;
 }
-.etc-item {
-  width: 262px;
-  height: 148px;
-  margin-bottom: 50px;
+.insert-box {
+  padding-bottom: 50px;
 }

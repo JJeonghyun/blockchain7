@@ -1,11 +1,10 @@
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 .root {
   margin: 0 4%;
-  height: 800px;
   padding-top: 150px;
 }
 .title-box {
@@ -28,6 +27,7 @@
 
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .title-inner-item {
   font-size: 24px;
@@ -35,12 +35,20 @@
   display: inline;
   padding: 5px;
 }
-
 .title-inner-item:first-child {
   border: 4px solid black;
   color: black;
   font-size: 20px;
   font-weight: 650;
+}
+
+.title-button > img {
+  width: 50px;
+}
+.title-button {
+  border: none;
+  background-color: white;
+  text-align: center;
 }
 .next-page {
   text-decoration: none;
@@ -56,18 +64,30 @@
   color: black;
   text-decoration: underline;
 }
-
 a:visited {
   text-decoration: none;
 }
-.video-title {
-  font-size: 48px;
-  width: 100%;
-  margin: 10px 10% 30px 10%;
-  font-weight: 350;
-  color: gray;
+
+@media screen and (min-width: 1183px) {
+  .title-bar {
+    display: none;
+  }
+  .title-none {
+    width: 0;
+    display: none;
+  }
 }
-.music-video {
+
+@media screen and (max-width: 1183px) {
+  .next-page {
+    display: none;
+    width: 0;
+  }
+}
+.schedule-box {
+  background-color: darkslategray;
+}
+.schedule-flex {
   display: flex;
   width: 100%;
 
@@ -75,45 +95,42 @@ a:visited {
   align-items: center;
   flex-wrap: wrap;
 }
-.video-item {
+.schedule-item {
   width: 100%;
   text-align: center;
-  margin: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
-.video-item:first-child {
-  margin-top: 30px;
-  font-size: 18px;
-  color: gray;
+.text1,
+.text2 {
+  text-align: center;
+  font-size: 2em;
+  color: white;
 }
-.short-line {
-  width: 20px;
-  margin: 10px 0;
+.text1 {
+  border: 7px solid white;
+  padding: 10px 5px;
 }
-/* .video-item:first-child:after {
-  content: "";
-  display: block;
-  width: 20px;
-  border-bottom: 1px solid gray;
-  margin: 20px auto;
-} */
+.text2 {
+  font-size: 1.3em;
+}
 
-.video-item:nth-child(3) {
-  width: 100%;
-
-  font-size: 32px;
-  color: gray;
+.schedule-item:last-child {
+  margin: 30px;
 }
-.etc-flex {
+.image-flex {
   display: flex;
   width: 100%;
-
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
-.etc-item {
-  width: 262px;
-  height: 148px;
-  margin-bottom: 50px;
+.img {
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 30px 100px;
+}
+img {
+  width: 200px;
+  object-fit: cover;
 }

@@ -1,0 +1,75 @@
+transform : 모양을 수정, 이동 할 수 있는 CSS 명령어 이다.
+translate 함수는 이동하는 함수이다.
+
+transform-scale : 확대, 1이 기본 값이다.
+                  배율이라고 생각하면된다. 0.5 = 50%
+                  translate 처럼 X,Y를 뒤에 붙여서 해당 축만 적용할 수 있다.
+
+transform-skew : 기울기이다. 혹은 회전 하는 명령어라고 보면 된다.
+                이 또한 translate 처럼 X,Y 가 있다.
+
+transform-rotate : z축을 중심으로 회전 하는 명렁어이다.
+                    우리가 보기엔 가운데 점을 중심으로 회전하는 것이다.
+
+transform-origin : 기준이 되는 축으로 회전하는 명령어이다.
+                    X, Y 순으로 결정한다.
+
+transition : 애니메이션 효과를 주긴 하는데, CSS  스타일이 변하는 것에 대한 설명이다.
+            transform에 대해서 변화하는 시간과 변화방법에 대해서 설정 할 수 있다.
+            (transition : transform *s ease-out, border *s ease-in-out, border-radius
+            *s ease-in-out) * : 설정하고 싶은 숫자(초 설정)
+
+transition { transform : rotate} : x y 순으로 회전 설정.
+
+@keyframes 클래스명 : 애니메이션 설정
+{
+    form : 0%, 50%, 100% 등 
+}
+
+animation:hover == > keyframes이름 시간 변화 방법에 대한 명렁어
+
+
+etc
+
+opacity : 투명도 조절
+z-index : z축 기준으로 어떤게 앞에 있는가 ? 얼마나 앞쪽으로 우선순위를 줄 것인가?
+
+@media query : 한경에 따라 CSS를 적용한다. 
+@media only (이거에만) screen(화면일 때) and (조건) { CSS 스타일(문법적용해서) }
+
+@media only screen and (max-width : 1000px) {} : 화면일 때만 너비가 1000px 까지에서 적용한다.
+
+
+Grid
+
+display : grid : grid 박스를 선언한다. 부모역활
+grid-template-rows : grid 박스의 세로 높이를 결정 한다. row(행)의 수만큼 입력한다
+grid-template-colums : grid 박스의 가로 너비를 결정 한다. colums(열)의 수만큼 입력한다.
+
+grid-template-rows : repeat ==> repeat 함수는 입력을 반복해준다.
+grid-template-colums : repeat(개수, 크기)
+grid-template-colums : repeat(개수, minmax(최소, 최대)) : 최소/최대를 선언하여 그 사이에서 알아서 조절
+
+row-gap : 세로 간격, 조절 , 빈틈
+colums-gap : 가로 간격, 조절, 빈틈
+
+grid-auto-flow : grid 아이템의 진행 방향을 설정.
+                기본 값으로 row(행, 가로)로 가는 순서
+                colums을 선언하면 colums(열, 세로)으로 가는 순서로 아이템 진행 방향을 결정
+
+grid-template-areas : grid 박스에 넓은 영역을 선언한다.
+                    하나의 row(colums)는 ""사이에 클래스명을 선언하여 설정하고
+                    여러 row일 경우 줄바꿈으로 처리하면 된다.
+                    해당 영역에 .(dot, 마침표)을 넣을 경우 빈칸으로 채워진다.
+
+                    무조건 사각형의 형태를 유지해야한다. 즉, 같은 클래스명으로 설정된 grid 아이템들은
+                    사각형을 이뤄야 UI가 깨지지 않는다.
+                    item의 스타일에 grid-area와 매칭한다.
+
+align-item : 세로 기준으로 위치를 결정하여 조절한다.
+            stretch가 기본값이며, 그 밖에 start, center, end 등 이 있다.
+
+justify-item : 가로 기준으로 위치를 결정하여 조절한다.
+            stretch가 기본값이며, 그 밖에 start, center, end 등 이 있다.
+
+
