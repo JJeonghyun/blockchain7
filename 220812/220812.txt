@@ -16,14 +16,13 @@ head, title, body 등 -> html 태그
 
 
 {
-head태그 내에는 브라우저에 대한 정보를 넘겨주는 태그
-
-charset : 문자포맷세팅 (uft-8) 
-http-equiv :  서버호환성에 관한 태그
-content : 브라우저에 코드패치기준 (IE 인터넷익스플로어 = edge)
-name="viewport" : 사용자가 보는관점
-width : 폭 (device ==> 디바이스폭 기준)
-initial-scale : 확대스케일
+    head태그 내에는 브라우저에 대한 정보를 넘겨주는 태그
+    charset : 문자포맷세팅 (uft-8) 
+    http-equiv :  서버호환성에 관한 태그
+    content : 브라우저에 코드패치기준 (IE 인터넷익스플로어 = edge)
+    name="viewport" : 사용자가 보는관점
+    width : 폭 (device ==> 디바이스폭 기준)
+    initial-scale : 확대스케일
 } <== 엘리먼트 ( 열린태그 닫는태그 )
 
 
