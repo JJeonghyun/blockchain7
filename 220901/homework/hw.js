@@ -22,8 +22,6 @@ function cal(a) {
       return saveNum1 / saveNum2;
     case "%":
       return saveNum1 % saveNum2;
-    default:
-      break;
   }
 }
 
