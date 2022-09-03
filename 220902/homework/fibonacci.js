@@ -1,18 +1,12 @@
 let a;
 function fibonacci(n) {
-  console.log(`입력한  수 : ${n} `);
-  let result = 1;
-  for (let i = 1; i <= n; i++) {
-    if (i == 1) return 1;
-    else if (i == 2) return 1;
-    else {
-      result = fibonacci(n - 2) + fibonacci(n - 1);
-    }
-  }
-  return result;
+  if (i == 1) return 1;
+  else if (i == 2) return 1;
+  else return fibonacci(n - 2) + fibonacci(n - 1);
 }
 
 a = prompt(`숫자를 입력하세요.`);
+console.log(`입력한  수 : ${a} `);
 console.log(`${a} = ${fibonacci(parseInt(a))}`);
 
 // 기본과제

@@ -91,6 +91,18 @@ console.log(arr);
 console.log(arr.join(" / "));
 // 배열을 문자열로 바꿔줍니다. 매개변수로 아이템 사이에 넣을 문자를 입력합니다.
 console.log(arr.toString()); // 문자열로 바꿈(거의 모든 객체에 포함되어 있음)
+a = Math.floor(Math.random() * 10);
+console.log(a);
+
+b = Math.floor(Math.random() * 10);
+console.log(b);
+
+c = Math.floor(Math.random() * 10);
+console.log(c);
+
+console.log(a);
+console.log(b);
+console.log(c);
 
 console.log(arr.slice(1, 3));
 
