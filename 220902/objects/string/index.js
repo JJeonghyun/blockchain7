@@ -8,7 +8,7 @@ console.log(str.indexOf("cDY")); // 전달된 텍스트가 내용에 없을 시 
 console.log(str.length); // 길이
 
 console.log(str.slice(1, 3));
-// 0 a 1 b 2 c 3 D 4 e 5 F 6 g 7 H 8 I 9 J 10 k 11 l 12m 13 n 14
+// 0 a 1 b 2 c 3 D 4 e 5 F 6 g 7 H 8 I 9 J 10 k 11 l 12 m 13 n 14
 // 짜르기, 1에서 시작해서 3에서 끝난다. >> bc 출력
 
 console.log(str.split(/D/));
