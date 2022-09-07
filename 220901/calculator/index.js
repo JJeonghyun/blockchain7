@@ -21,15 +21,15 @@ function numSel() {
   clickCount++; // 클릭했을 때 클릭한 횟수 증가
 }
 
-function numSel(num) {
+function numsSel(num) {
   // let num; << 위에 바로 (num) 과 같다.
   // 함수 스코프({}) 안에서만 사용 된다.
   // 함수 밖에서 선언된 전역변수, 지역변수 등 다른 '이름이 같은 다른 변수'와 다른 변수다
-  // 밖에서 num = 1; 했어도 안에서는 undefined가 뜰 수 있다. << 호출 시 () 안이 비어 있다.
+  // 밖에서 num = 1; 했어/도 안에서는 undefined가 뜰 수 있다. << 호출 시 () 안이 비어 있다.
   // 이후 HTML 12번 줄에서 ()안에 7을 넣음으로써 "num = 7"로 정의 한다.
   if (clickCount == 0) {
     firstNum = num;
-  } else if (!clickCount == 1) {
+  } else if (clickCount == 1) {
     secondNum = num;
   } else {
   }

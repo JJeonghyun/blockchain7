@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+}
+.root {
+  width: 600px;
+  margin: 0 auto;
+}
+.flex-box {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card {
+  border: 1px solid black;
+  width: 100px;
+  height: 150px;
+  border-radius: 5%;
+  background-color: aqua;
+}
+.card:hover {
+  scale: 1.1em;
+  border-radius: 5%;
+  box-shadow: 5px 5px gray;
+  cursor: pointer;
+}

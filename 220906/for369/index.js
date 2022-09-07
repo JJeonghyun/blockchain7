@@ -1,48 +1,63 @@
-// let x, y;
+let x = [];
 
-// let oddArr = [];
-// let evenArr = [];
+let oddArr = [];
+let evenArr = [];
 
-// function oddEven(x, name) {
-//   for (let i = 0; i <= x; i++) {
-//     if (i % 2 == 1) oddArr.push(i);
-//     else if (i % 2 == 0) evenArr.push(i);
-//     else continue;
-//   }
-//   if (name == "홀수") console.log(oddArr + " " + name);
-//   else if (name == "짝수") console.log(evenArr + " " + name);
-// }
+function oddEven(x, name) {
+  for (let i = 0; i <= x; i++) {
+    if (i % 2 == 1) oddArr.push(i);
+    else if (i % 2 == 0) evenArr.push(i);
+    else continue;
+  }
+  if (name == "홀수") console.log(oddArr + " " + name);
+  else if (name == "짝수") console.log(evenArr + " " + name);
+}
 
-// x = parseInt(prompt(`숫자를 입력하세요`));
-// y = prompt(`홀수 / 짝수`);
-// oddEven(x, y);
+x = parseInt(prompt(`숫자와 홀수/짝수를 입력하세요.`).split(" "));
 
-let inputNum, count;
+oddEven(x[0], x[1]);
+
+let inputNum;
 let numArr = [];
+let original;
 
 inputNum = prompt(`369게임을 시작하겠습니다. 목표 숫자를 입력하세요`);
 
-numArr = [...inputNum];
-console.log(numArr);
-
-function num11(number) {
-  let nums = number.toString().split("");
-  let clap = [];
-
-  for (let num of nums) {
-    if (num === "3" || num === "6" || num === "9") {
-      clap.push("짝!");
-    }
-    if (clap.indexOf("짝!") == -1) {
-      return nums.join("");
+for (let i = 1; i <= inputNum; i++) {
+  original = i;
+  numArr = [...String(original)];
+  let count = 0;
+  for (let j = 0; j <= numArr.length - 1; j++) {
+    if (numArr[j] == 3 || numArr[j] == 6 || numArr[j] == 9) {
+      count++;
     }
   }
-  return clap;
+  if (count == 0) {
+    console.log(original);
+  } else {
+    console.log(original + " clap !".repeat(count));
+  }
 }
 
-console.log(num11(359));
+// numArr = [...inputNum];
+// console.log(numArr);
 
-//https://velog.io/@plutoin/5.-369-%EA%B2%8C%EC%9E%84
+// function num11(number) {
+//   let nums = number.toString().split("");
+//   let clap = [];
+
+//   for (let num of nums) {
+//     if (num === "3" || num === "6" || num === "9") {
+//       clap.push("짝!");
+//     }
+//     if (clap.indexOf("짝!") == -1) {
+//       return nums.join("");
+//     }
+//   }
+//   return clap;
+// }
+
+// console.log(num11(359));
 
 //   if (inputNum % 10 == 3) {
 //     console.log(inputNum + " clap");
