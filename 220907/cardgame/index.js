@@ -88,8 +88,8 @@ function shuffle(arr) {
 function cardNum() {
   setSel1 = shuffle(numArr);
   for (let i = 0; i < 8; i++) {
-    let card1Div1 = document.getElementById("addArr1");
-    card1Div1.innerHTML = setSel1[i];
+    let spanNum = document.getElementById(`${i}`);
+    spanNum.innerHTML = setSel1[i];
   }
 }
 function reset() {
