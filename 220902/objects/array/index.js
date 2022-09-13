@@ -168,7 +168,7 @@ const tempArr = [
   },
   {
     name: "염예나",
-    age: 32,
+    age: 22,
     area: "경기 하남",
   },
   {

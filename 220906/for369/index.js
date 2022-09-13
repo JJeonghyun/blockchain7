@@ -7,13 +7,12 @@ function oddEven(x, name) {
   for (let i = 0; i <= x; i++) {
     if (i % 2 == 1) oddArr.push(i);
     else if (i % 2 == 0) evenArr.push(i);
-    else continue;
   }
   if (name == "홀수") console.log(oddArr + " " + name);
   else if (name == "짝수") console.log(evenArr + " " + name);
 }
 
-x = parseInt(prompt(`숫자와 홀수/짝수를 입력하세요.`).split(" "));
+x = prompt(`숫자와 홀수/짝수를 입력하세요.`).split(" ");
 
 oddEven(x[0], x[1]);
 

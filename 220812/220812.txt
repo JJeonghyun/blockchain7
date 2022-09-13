@@ -65,3 +65,13 @@ openSea 라는 페이지 접해보기
 - 뉴욕에 본사를 두고 있는 미국 온라인NFT 마켓플레이스이다. 
 이더리움 ERC-721 표준, Klaytn용 KIP-7표준인 이더리움 폴리곤용 레이어 2확장 솔루션 기반으로 
 고정 가격으로 직접, 경매를 통해 NFT판매를 할 수 있는 시장을 제공한다.
+
+
+
+
+id, class 해당 속성들은 우선순위가 존재하여 하위 속성 값에 설정을 무시 한다.
+
+
+총 width : 300px
+box-sizing : border-box: 외부 여백과 내부 영역 사이에 content를 포함한 border의 크기를 정한다.
+( border 1px, padding 10px 를 제외한 content 속성  폭 크기는 278px)
