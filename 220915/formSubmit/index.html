@@ -1,0 +1,32 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formSubmit</title>
+  </head>
+  <body>
+    <form action="/asdf" name="form-test">
+      <input type="text" id="input-test" />
+      <button type="submit">확인 버튼</button>
+    </form>
+    <a id="test-a" href="https://naver.com" target="_blank">네이버</a>
+    <!-- target="_blank" 는 a 태그를 이용하여 이동한 주소창이 새탭으로 열리도록하는 속성이다.-->
+    <script>
+      console.log(document.forms["form-test"]);
+      console.log(document.forms["form-test"]["input-test"]);
+      document.forms["form-test"].onsubmit = (e) => {
+        e.preventDefault();
+        // 이벤트 매개변수(e)는 모든 이벤트에 대한 정보를 가지고 있다.
+        // target, ... 등
+        // preventDefault 메서드는 기존에 실행되는 기능을 멈춘다.
+        // 즉, 이벤트가 실행될 때 무조건적으로 / 기본적으로 실행되는 코드를 실행되지 않도록 막는다.
+      };
+      document.getElementById("test-a").onclick = (e) => {
+        console.log(e);
+        e.preventDefault();
+        // 기존에 실행되는 이벤트함수를 막는다. 여기선 a태그의 기본적으로 지정된 주소로 이동하는 것을 막는다.
+      };
+    </script>
+  </body>
+</html>
