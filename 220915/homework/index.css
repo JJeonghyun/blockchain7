@@ -143,3 +143,161 @@
 .big-circle {
   animation: loop-circle 3s linear infinite;
 }
+.win1 {
+  animation: ceremony1 0.5s infinite;
+}
+
+.win2 {
+  animation: ceremony2 0.5s infinite;
+}
+
+@keyframes ceremony1 {
+  from {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  to {
+    background-color: orange;
+  }
+}
+
+@keyframes ceremony2 {
+  from {
+    background-color: blue;
+  }
+  50% {
+    background-color: red;
+  }
+  to {
+    background-color: lightskyblue;
+  }
+}
+
+@keyframes effect {
+  from {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  to {
+    background-color: orange;
+  }
+}
+
+.lose {
+  animation: effect 0.5s 3;
+}
+.draw {
+  animation: effect 0.5s 3;
+}
+.big-circle div {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+.num:nth-child(1) {
+  position: relative;
+  top: 11px;
+  left: 112px;
+}
+.num:nth-child(2) {
+  position: relative;
+  top: 18px;
+  left: 126px;
+  transform: rotate(22.5deg);
+}
+.num:nth-child(3) {
+  position: relative;
+  top: 39px;
+  left: 132px;
+  transform: rotate(45deg);
+}
+.num:nth-child(4) {
+  position: relative;
+  top: 69px;
+  left: 130px;
+  transform: rotate(67.5deg);
+}
+.num:nth-child(5) {
+  position: relative;
+  top: 108px;
+  left: 112px;
+  transform: rotate(90deg);
+}
+.num:nth-child(6) {
+  position: relative;
+  top: 151px;
+  left: 82px;
+  transform: rotate(112.5deg);
+}
+.num:nth-child(7) {
+  position: relative;
+  top: 182px;
+  left: 33px;
+  transform: rotate(135deg);
+}
+.num:nth-child(8) {
+  position: relative;
+  top: 205px;
+  left: -26px;
+  transform: rotate(157.5deg);
+}
+.num:nth-child(9) {
+  position: relative;
+  top: 212px;
+  left: -91px;
+  transform: rotate(180deg);
+}
+.num:nth-child(10) {
+  position: relative;
+  top: 186px;
+  left: 75px;
+  transform: rotate(202.5deg);
+}
+.num:nth-child(11) {
+  position: relative;
+  top: 168px;
+  left: 17px;
+  transform: rotate(225deg);
+}
+.num:nth-child(12) {
+  position: relative;
+  top: 132px;
+  left: -30px;
+  transform: rotate(250.5deg);
+}
+.num:nth-child(13) {
+  position: relative;
+  top: 93px;
+  left: -63px;
+  transform: rotate(270deg);
+}
+.num:nth-child(14) {
+  position: relative;
+  top: 57px;
+  left: -84px;
+  transform: rotate(292.5deg);
+}
+.num:nth-child(15) {
+  position: relative;
+  top: 22px;
+  left: -88px;
+  transform: rotate(315deg);
+}
+.num:nth-child(16) {
+  position: relative;
+  top: 1px;
+  left: -80px;
+  transform: rotate(337.5deg);
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.numEffect {
+  animation: blink 0.5s step-end infinite;
+}
