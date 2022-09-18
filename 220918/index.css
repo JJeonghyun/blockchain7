@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.body-first-flex {
+  background-image: url(./headphone1.jpg);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+
+  display: flex;
+}

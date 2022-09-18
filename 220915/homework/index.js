@@ -9,7 +9,10 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const monitorItem = document.getElementsByClassName("monitor-item");
 const numDiv = document.getElementsByClassName("num");
+
+// 큰 원판 숫자들 반짝이는 효과를 위한 빈 배열 초기화
 let numBlink = [];
+
 // 타 버튼 클릭 방지 변수 초기화
 let checkButton = -1;
 // 초기 자금 초기화
@@ -39,18 +42,24 @@ for (let i = 0; i < numDiv.length; i++) {
 // 게임 대기 화면은 큰 원판이 돌아가며, 비교적 느린 속도로 가위바위보 순환
 //시작 버튼을 눌렀을 때 큰 원판을 정지, 가위바위보 반복 speed Up
 const start = function () {
-  checkButton++;
-  // 연달아 게임시작 버튼 누르는 거 방지
   if (checkButton >= 1) {
+    // 연달아 게임시작 버튼 누르는 거 방지
     alert(`한번만.. 눌러요..`);
     return;
-  }
-  // 시작 버튼 누를 시 자금 차감
-  pTag.innerText = `coin : ${(money -= 100)}`;
+  } else if (money < 100) {
+    // 게임 머니 100원 이하 일 떄
+    alert(`돈 다 날아갔쥬 ?`);
+    return;
+  } else {
+    checkButton++;
 
-  // 큰 원판은 회전을 멈추고, 이미지 순환 속도 올리기
-  startGame.style.animation = "loop-circle 0s linear infinite";
-  fastImg.style.animation = "loop-img 0.5s infinite linear";
+    // 시작 버튼 누를 시 자금 차감
+    pTag.innerText = `coin : ${(money -= 100)}`;
+
+    // 큰 원판은 회전을 멈추고, 이미지 순환 속도 올리기
+    startGame.style.animation = "loop-circle 0s linear infinite";
+    fastImg.style.animation = "loop-img 0.5s infinite linear";
+  }
 };
 
 // 가위 버튼을 눌렀을 때
@@ -100,6 +109,8 @@ const scissorsClick = function () {
       monitorItem[2].classList = "monitor-item";
       alert("패배! 게임시작을 다시 눌러주세요");
     }, 2000);
+
+    //예외 처리를 위해 재정의
     checkButton = -1;
   } else {
     console.log("이겻네");
@@ -111,8 +122,6 @@ const scissorsClick = function () {
     monitorItem[0].classList.add("win1");
     monitorItem[1].classList.add("win2");
 
-    pTag.innerText = `coin : ${(money += 100)}`;
-
     // 플레이어가 눈으로 인지할 수 있도록 잠시 보여주기
     setTimeout(() => {
       fastImg.style.animation = "loop-img 3s infinite linear 2s";
@@ -122,6 +131,7 @@ const scissorsClick = function () {
       alert("이겼습니다! 축하드립니다~!");
     }, 1500);
 
+    // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
     numBlink = [...numDiv];
     for (let i = 0; i < numBlink.length; i++) {
       numBlink[i].classList.add("numEffect");
@@ -132,15 +142,15 @@ const scissorsClick = function () {
       }
     }, 3000);
 
+    // 난수를 뽑아서 해당 수 * 10으로 코인 획득
     let tempNum = winCoin[parseInt(Math.random() * 16)];
 
-    console.log(tempNum);
-
     setTimeout(() => {
-      pTag.innerText = `coin : ${(money += tempNum * 100)}`;
-      alert(`${tempNum * 100} 만큼 코인을 획득 했습니다.`);
+      pTag.innerText = `coin : ${(money += tempNum * 10)}`;
+      alert(`${tempNum * 10} 만큼 코인을 획득 했습니다.`);
     }, 3000);
 
+    // 예외 처리를 위해 재정의
     checkButton = -1;
   }
 };
@@ -203,8 +213,6 @@ const rockClick = function () {
     monitorItem[0].classList.add("win1");
     monitorItem[1].classList.add("win2");
 
-    pTag.innerText = `coin : ${(money += 100)}`;
-
     // 이긴 화면을 정지하여 플레이어가 볼 수 있도록
     setTimeout(() => {
       fastImg.style.animation = "loop-img 3s infinite linear 2s";
@@ -213,6 +221,8 @@ const rockClick = function () {
       monitorItem[1].classList = "monitor-item";
       alert("이겼습니다! 축하드립니다~!");
     }, 1500);
+
+    // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
     numBlink = [...numDiv];
     for (let i = 0; i < numBlink.length; i++) {
       numBlink[i].classList.add("numEffect");
@@ -223,13 +233,12 @@ const rockClick = function () {
       }
     }, 3000);
 
+    // 난수를 뽑아서 해당 수 * 10으로 코인 획득
     let tempNum = winCoin[parseInt(Math.random() * 16)];
 
-    console.log(tempNum);
-
     setTimeout(() => {
-      pTag.innerText = `coin : ${(money += tempNum * 100)}`;
-      alert(`${tempNum * 100} 만큼 코인을 획득 했습니다.`);
+      pTag.innerText = `coin : ${(money += tempNum * 10)}`;
+      alert(`${tempNum * 10} 만큼 코인을 획득 했습니다.`);
     }, 3000);
     // 타 버튼 방지 변수 재정의
     checkButton = -1;
@@ -283,7 +292,7 @@ const paperClick = function () {
       alert("패배! 게임시작을 다시 눌러주세요");
     }, 2000);
     // 예외 처리
-    checkButton == -1;
+    checkButton = -1;
   } else {
     console.log("이겻네");
     // 해당 이미지를 보여주기 위해 애니메이션을 정지하고 해당 이미지 출력
@@ -294,8 +303,6 @@ const paperClick = function () {
     monitorItem[0].classList.add("win1");
     monitorItem[1].classList.add("win2");
 
-    pTag.innerText = `coin : ${(money += 100)}`;
-
     // 플레이어가 눈으로 인지할 수 있도록 잠시 보여주기
     setTimeout(() => {
       fastImg.style.animation = "loop-img 3s infinite linear 2s";
@@ -304,6 +311,8 @@ const paperClick = function () {
       monitorItem[1].classList = "monitor-item";
       alert("이겼습니다! 축하드립니다~!");
     }, 1500);
+
+    // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
     numBlink = [...numDiv];
     for (let i = 0; i < numBlink.length; i++) {
       numBlink[i].classList.add("numEffect");
@@ -314,15 +323,14 @@ const paperClick = function () {
       }
     }, 3000);
 
+    // 난수를 뽑아서 해당 수 * 10으로 코인 획득
     let tempNum = winCoin[parseInt(Math.random() * 16)];
 
-    console.log(tempNum);
-
     setTimeout(() => {
-      pTag.innerText = `coin : ${(money += tempNum * 100)}`;
-      alert(`${tempNum * 100} 만큼 코인을 획득 했습니다.`);
+      pTag.innerText = `coin : ${(money += tempNum * 10)}`;
+      alert(`${tempNum * 10} 만큼 코인을 획득 했습니다.`);
     }, 3000);
-    // 예외처리
+    // 예외처리를 위해 재정의
     checkButton = -1;
   }
 };
