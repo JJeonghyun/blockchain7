@@ -1,14 +1,14 @@
-const title = document.getElementById("title");
-let pTag = document.createElement("p");
+let pTag = document.getElementById("title").getElementsByTagName("p")[0];
 let smallCircle = document.getElementById("small-circle");
-let fastImg = document.querySelector(".small-circle");
-let startGame = document.querySelector(".big-circle");
+let fastImg = document.getElementsByClassName("small-circle")[0];
+let startGame = document.getElementsByClassName("big-circle")[0];
 const startButton = document.getElementById("start-button");
 const scissorsButton = document.getElementById("scissors");
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const monitorItem = document.getElementsByClassName("monitor-item");
-const numDiv = document.getElementsByClassName("num");
+const numDivArr = [...document.getElementsByClassName("num")];
+const choices = document.getElementsByClassName("choice");
 
 // 큰 원판 숫자들 반짝이는 효과를 위한 빈 배열 초기화
 let numBlink = [];
@@ -18,11 +18,10 @@ let checkButton = -1;
 // 초기 자금 초기화
 let money = 1000;
 pTag.innerText = `coin : ${money} `;
-title.appendChild(pTag);
+// title.appendChild(pTag);
 
 let comRsp = [0, 1, 2]; // 0,1,2 : 가위, 바위, 보
 
-let winCoin = [];
 let coinSet = new Set();
 
 // 큰 원판에 랜덤(1-20) 숫자 넣기 위해 숫자 뽑기
@@ -31,13 +30,20 @@ while (coinSet.size < 16) {
   // 1-21
   console.log(coinSet);
 }
-winCoin = [...coinSet];
+let winCoin = [...coinSet];
 
 // 큰 원판에 랜덤(1-20) 숫자 넣기
-for (let i = 0; i < numDiv.length; i++) {
-  numDiv[i].innerText = winCoin[i];
-  console.log(numDiv[i].innerText);
-}
+// for (let i = 0; i < numDivArr.length; i++) {
+//   numDivArr[i].innerText = winCoin[i];
+//   console.log(numDivArr[i].innerText);
+// }
+numDivArr.forEach((elem, index) => {
+  elem.innerText = winCoin[index];
+});
+
+// [...choices].forEach((elem) =>{
+
+// })
 
 // 게임 대기 화면은 큰 원판이 돌아가며, 비교적 느린 속도로 가위바위보 순환
 //시작 버튼을 눌렀을 때 큰 원판을 정지, 가위바위보 반복 speed Up
@@ -132,14 +138,13 @@ const scissorsClick = function () {
     }, 1500);
 
     // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
-    numBlink = [...numDiv];
-    for (let i = 0; i < numBlink.length; i++) {
-      numBlink[i].classList.add("numEffect");
-    }
+    numDivArr.forEach((elem) => {
+      elem.classList.add("numEffect");
+    });
     setTimeout(() => {
-      for (let i = 0; i < numBlink.length; i++) {
-        numBlink[i].classList.remove("numEffect");
-      }
+      numDivArr.forEach((elem) => {
+        elem.classList.remove("numEffect");
+      });
     }, 3000);
 
     // 난수를 뽑아서 해당 수 * 10으로 코인 획득
@@ -223,14 +228,13 @@ const rockClick = function () {
     }, 1500);
 
     // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
-    numBlink = [...numDiv];
-    for (let i = 0; i < numBlink.length; i++) {
-      numBlink[i].classList.add("numEffect");
-    }
+    numDivArr.forEach((elem) => {
+      elem.classList.add("numEffect");
+    });
     setTimeout(() => {
-      for (let i = 0; i < numBlink.length; i++) {
-        numBlink[i].classList.remove("numEffect");
-      }
+      numDivArr.forEach((elem) => {
+        elem.classList.remove("numEffect");
+      });
     }, 3000);
 
     // 난수를 뽑아서 해당 수 * 10으로 코인 획득
@@ -313,14 +317,13 @@ const paperClick = function () {
     }, 1500);
 
     // 이겼을 때 숫자들 반짝거리는 애니메이션을 위해 클래스 추가
-    numBlink = [...numDiv];
-    for (let i = 0; i < numBlink.length; i++) {
-      numBlink[i].classList.add("numEffect");
-    }
+    numDivArr.forEach((elem) => {
+      elem.classList.add("numEffect");
+    });
     setTimeout(() => {
-      for (let i = 0; i < numBlink.length; i++) {
-        numBlink[i].classList.remove("numEffect");
-      }
+      numDivArr.forEach((elem) => {
+        elem.classList.remove("numEffect");
+      });
     }, 3000);
 
     // 난수를 뽑아서 해당 수 * 10으로 코인 획득
