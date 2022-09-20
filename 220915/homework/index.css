@@ -177,7 +177,18 @@
   }
 }
 
-@keyframes effect {
+@keyframes effect1 {
+  from {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  to {
+    background-color: orange;
+  }
+}
+@keyframes effect2 {
   from {
     background-color: red;
   }
@@ -190,10 +201,10 @@
 }
 
 .lose {
-  animation: effect 0.5s 3;
+  animation: effect1 0.5s 3;
 }
 .draw {
-  animation: effect 0.5s 3;
+  animation: effect2 0.5s 3;
 }
 .big-circle div {
   display: inline-block;
