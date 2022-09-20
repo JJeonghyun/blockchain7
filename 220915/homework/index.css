@@ -337,3 +337,6 @@
 .broad-item p {
   font-size: 0.7em;
 }
+.broad-item button {
+  cursor: pointer;
+}
