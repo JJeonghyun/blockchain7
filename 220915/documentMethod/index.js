@@ -41,7 +41,7 @@ console.log(document.getElementById("name").style.border);
 
 let bodyId = document.getElementById("bodyId");
 let body = document.getElementsByTagName("body");
-window.onresize = function (e) {
+window.onresize = () => {
   let tempWidth = window.innerWidth;
   let tempHeight = window.innerHeight;
   console.log("현재 보여지는 윈도우 창 너비 : " + tempWidth);
