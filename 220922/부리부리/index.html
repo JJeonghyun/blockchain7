@@ -1,0 +1,274 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부리부리대마왕</title>
+    <style>
+      img {
+        width: 500px;
+        animation: jjang 1s infinite linear;
+      }
+      @keyframes jjang {
+        0% {
+          transform: translateX(0%);
+        }
+        50% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+
+      h1 {
+        animation: font 5s infinite;
+      }
+
+      @keyframes font {
+        10% {
+          color: blue;
+        }
+
+        30% {
+          color: deeppink;
+        }
+        50% {
+          color: yellow;
+        }
+
+        75% {
+          color: red;
+        }
+        100% {
+          color: turquoise;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-size: 10rem; text-align: center">부리부리~</h1>
+    <div>
+      <img
+        src="https://tse1.mm.bing.net/th?id=OIP.qi9XY9oLz0lJ4Ai6Xg4iOAAAAA&pid=Api&P=0"
+        alt=""
+      />
+    </div>
+    <script>
+      // 클래스를 사용해서 배열 생성
+      // - 순차적 데이터, 즉 get(index)를 사용해서 배열의 []와 같이 가져 올 수 있다.
+      // - push(), pop()을 사용해서 데이터를 넣을 수 있다.
+      // - indexOf()를 사용해서 데이터의 위치를 찾는다.
+      // 내일 풀이 예정, 내일은 과제가 없다.
+
+      // class Stack {
+      //   constructor() {
+      //     this.stactArr = [];
+      //     // this.stackIdx = -1;
+      //   }
+      //   push(Data) {
+      //     // this.stackIdx++;
+      //     this.stactArr.push(Data);
+      //   }
+      //   pop() {
+      //     if (this.stackIdx < 0) {
+      //       console.log("아무것도 없는데 어뜨케 뽑아요...");
+      //       return;
+      //     } else {
+      //       // this.stackIdx--;
+      //       return this.stactArr.pop();
+      //     }
+      //   }
+      //   indexOf(Data) {
+      //     return this.stactArr.indexOf(Data);
+      //   }
+      //   get() {
+      //     return this.stactArr;
+      //   }
+      // }
+      // let stack = new Stack();
+      // stack.push(3);
+      // stack.push(4);
+      // stack.push(5);
+      // stack.push("짱구");
+      // stack.push("철수");
+      // stack.push("유리");
+      // console.log(stack.indexOf(5));
+      // console.log(stack.get());
+      // console.log(stack.indexOf("짱구"));
+
+      // class StackHard {
+      //   constructor() {
+      //     this.stackArr = {};
+      //     this.stackIdx = -1;
+      //   }
+      //   push(Data) {
+      //     this.stackArr[++this.stackIdx] = Data;
+      //   }
+      //   pop() {
+      //     if (this.stackIdx < 0) {
+      //       console.log("아무것도 없는데 어뜨케 뽑아요...");
+      //       return;
+      //     } else {
+      //       const popData = this.stackArr[this.stackIdx];
+      //       this.stackArr[this.stackIdx] = undefined;
+      //       this.stackIdx--;
+      //       return popData;
+      //     }
+      //   }
+      //   indexOf(Data) {
+      //     for (let i = 0; i <= this.stackIdx; i++) {
+      //       if (this.stackArr[i] === Data) return i;
+      //     }
+      //   }
+      //   get() {
+      //     return this.stackArr;
+      //   }
+      //   size() {
+      //     if (this.stackIdx < 0) {
+      //       console.log("아무것도 없는디요....");
+      //       return;
+      //     } else {
+      //       return this.stackIdx + 1;
+      //     }
+      //   }
+      // }
+      // let stackHard = new StackHard();
+      // stackHard.push(1);
+      // stackHard.push("짱구");
+      // console.log(stackHard.get());
+      // console.log(stackHard.pop());
+
+      class Node {
+        constructor(data) {
+          this.data = data;
+        }
+      }
+      class StackNode extends Node {
+        constructor(data, head) {
+          super(data);
+          this.head;
+        }
+        push(data) {
+          if (!this.data) this.data = data;
+          else if (this.head) {
+            this.head.push(data);
+          } else {
+            this.head = new StackNode(data);
+          }
+        }
+        pop() {
+          if (this?.head?.head) return this.head.pop();
+          else if (!this?.head) {
+            const temp = this.data;
+            this.data = undefined;
+            return temp;
+          } else {
+            const temp = this.head.data;
+            delete this.head;
+            this.head = undefined;
+            return temp;
+          }
+        }
+      }
+      const stack = new StackNode(1);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      console.log(stack);
+      console.log(stack.pop());
+      console.log(stack);
+      console.log(stack.pop());
+      console.log(stack);
+
+      class QueueNode extends Node {
+        constructor(data, head) {
+          super(data);
+          this.head = head;
+        }
+        push(data) {
+          if (!this.data) this.data = data;
+          else if (this.head) {
+            this.head.push(data);
+          } else {
+            this.head = new QueueNode(data);
+          }
+        }
+        shift() {
+          if (!this?.head) {
+            const temp = this.data;
+            delete this.data;
+            this.data = undefined;
+            return temp;
+          } else if (!this?.head?.head && this?.head.data) {
+            const temp = this.data;
+            this.data = this.head.data;
+            delete this.head;
+            this.head = undefined;
+            return temp;
+          } else if (this?.head?.head) {
+            const temp = this.data;
+            delete this.data;
+            this.data = undefined;
+            this.data = this.head.data;
+            this.head = this.head.head;
+            return temp;
+          }
+        }
+      }
+      const queue = new QueueNode(1);
+      queue.push(2);
+      queue.push(3);
+      queue.push(4);
+      queue.push(5);
+      console.log(queue);
+      console.log(queue.shift());
+      console.log(queue);
+      console.log(queue.shift());
+      console.log(queue);
+
+      class BinaryTreeNode extends Node {
+        constructor(data, left, right) {
+          super(data);
+          this.left;
+          this.right;
+        }
+        push(data) {
+          if (!this.data) {
+            this.data = data;
+          } else if (!this.left && !this.right) {
+            this.left = new BinaryTreeNode(data);
+            // this.left.push(data);
+            // this.right = new BinaryTreeNode(data);
+          } else if (this.left && !this.right) {
+            // this.left.push(data);
+            this.right = new BinaryTreeNode(data);
+            // this.right.push(data);
+          } else if (this.left && this.right) {
+            this.left.push(data);
+            // this.right.push(data);
+          } else {
+            this.right.push(data);
+          }
+
+          // if (!this.right.left) {
+          //   this.data.push(data);
+          // }
+          // else if (!this.left && this.right) {
+          //   this.right.push(data);
+          // }
+        }
+      }
+      const BinaryTree = new BinaryTreeNode(1);
+      BinaryTree.push(2);
+      BinaryTree.push(3);
+      BinaryTree.push(4);
+      BinaryTree.push(5);
+      // BinaryTree.push(6);
+      // BinaryTree.push(7);
+      console.log(BinaryTree);
+      // console.log(BinaryTree.left);
+      // console.log(BinaryTree.right);
+    </script>
+  </body>
+</html>

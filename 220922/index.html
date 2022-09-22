@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log((65).toString(2)); // 아스키코드 기준으로 알파벳 'A'에 대해 2진수 표기 출력
+      console.log((65).toString(16)); // 아스키코드 기준으로 알파벳 'A'에 대해 16진수 표기 출력
+      console.log("\uAC00");
+
+      let name = "정경훈"; // <- 새로 변수 저장 공간을 만들어서 데이터 값을 넣고 그 변수 저장 공간 시작 이름을 정의
+      let count = 0;
+      name = "이가원"; // <- 또 다른 변수 저장 공간을 다시 만들어서 데이터 값을 넣고 기존에 있던 저장 공간은 garbege collector(colletion)이 없애준다.
+
+      // 자료 구조란? 한정된 용량(메모리, 공간)에 최적화 시켜서 많은 데이터를 쓸 수 있도록 설계된 것.
+      // call stack, memory heap
+      // Web API
+      // Callback Queue
+
+      // 중요 키워드 : stack, heap, queue
+      // 스택(stack) : 선입후출, 먼저 들어간게 나중에 나온다. / push, pop
+      function stackOverFlow(count) {
+        console.log(count);
+        if (++count < 10) stackOverFlow(count); // ----------- 요 라인 까지 돌고
+
+        console.log(count + "end");
+      }
+      stackOverFlow(0);
+      // 큐(queue) : 선입선출, 먼저 들어간 것이 먼저 나온다. / push, shift
+      // 큐는 보통 사용자 입력에 대해서 저장한다(관리한다).
+      // 힙(heap) : 객체, 배열을 저장할 때 사용한다. 상당히 마구잡이로 위치한다. 메모리 공간, 그 메모리가 어떻게 저장되어 있는가..
+    </script>
+  </body>
+</html>
