@@ -238,25 +238,13 @@
             this.data = data;
           } else if (!this.left && !this.right) {
             this.left = new BinaryTreeNode(data);
-            // this.left.push(data);
-            // this.right = new BinaryTreeNode(data);
           } else if (this.left && !this.right) {
-            // this.left.push(data);
             this.right = new BinaryTreeNode(data);
-            // this.right.push(data);
           } else if (this.left && this.right) {
             this.left.push(data);
-            // this.right.push(data);
           } else {
             this.right.push(data);
           }
-
-          // if (!this.right.left) {
-          //   this.data.push(data);
-          // }
-          // else if (!this.left && this.right) {
-          //   this.right.push(data);
-          // }
         }
       }
       const BinaryTree = new BinaryTreeNode(1);
