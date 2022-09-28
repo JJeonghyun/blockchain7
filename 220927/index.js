@@ -130,15 +130,27 @@ testSearch.insert(15);
 testSearch.remove(1);
 console.log(testSearch);
 
-function solution(x) {
+function solution(num) {
   let answer = 0;
-  let origiNum = x;
-
-  while (x) {
-    answer += x % 10;
-    x /= 10;
+  while (true) {
+    if (num == 1) return answer;
+    if (answer >= 500) return -1;
+    if (num % 2 == 0) {
+      num /= 2;
+      answer++;
+    } else {
+      num = num * 3 + 1;
+      answer++;
+    }
   }
-  if (origiNum % parseInt(answer) == 0) return true;
-  else return false;
 }
-console.log(solution(10));
+
+function solution1(num) {
+  let answer = 0;
+  while (num != 1 && answer++ < 500) {
+    num = num % 2 ? num * 3 + 1 : num / 2;
+  }
+  return num == 1 ? answer : -1;
+}
+
+console.log(solution(626331));

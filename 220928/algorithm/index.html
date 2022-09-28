@@ -1,0 +1,152 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>algorithm</title>
+  </head>
+  <body>
+    알고리즘이란? 어떤 문제를 해결하기 위한 일련의 절차나 방법을 공식화한 형태로
+    표현한 것<br />
+    우리는 지금까지 알고리즘을 해왔다. ==> 플로우차트<br />
+    알고리즘이라고 이야기하는 것은 하나의 기능<br />
+    조건 : 입력, 출력, 명확성, 유한성, 효율성<br />
+    - 입력 : 하나 이상의 데이터를 입력받는다.(매개변수)<br />
+    - 출력 : 2개 이상의 다른 결과가 있어야한다.(return)<br />
+    - 명확성 : 과정이 명확하고 모호하지 않은 명령어로 되어있어야한다.<br />
+    - 유한성(종결성) : 끝나야 한다. 무한대로 실행되면 안된다.<br />
+    - 효율성 : 실행이 가능 해야 한다. 검증이 된다.<br />
+
+    <br /><br />
+    시간복잡도(big O 표현법)<br />
+    <pre>
+    알고리즘이 끝날 때 까지의 시간을 표기한다. 입력값은 n이다.
+    O(1) : 무조건 한번 돈다.
+    O(log n) : n 지수 ? n 로그 만큼 돈다.
+    O(n) : n번 돈다.
+    O(n log n) : n log n 만큼 돈다.
+    O(n^2) : n 제곱만큼 돈다.
+    O(2^n) : 2의 n승 만큼 돈다.
+    O(n!) : n! 만큼 돈다.
+</pre
+    >
+    <script>
+      //   function o1(data) {
+      //     console.log(data);
+      //   }
+      //   function on(data) {
+      //     for (let i = 0; i < data.length; i++) {
+      //       console.log(data[i]);
+      //     }
+      //   }
+      //   function on2(data) {
+      //     for (let i = 0; i < data.length; i++) {
+      //       for (let j = 0; j < data.length; j++) {
+      //         console.log(data[i]);
+      //       }
+      //     }
+      //   }
+      //   function solution(num) {
+      //     let answer = "";
+      //     if (num % 2 == 0) {
+      //       return (answer = "Even");
+      //     } else {
+      //       return (answer = "Odd");
+      //     }
+      //   }
+      //   console.log(solution(3));
+
+      //   function solution(arr) {
+      //     let answer = 0;
+      //     for (let i = 0; i < arr.length; i++) {
+      //       answer += arr[i];
+      //     }
+      //
+      //     return answer /= arr.length;
+      //   }
+      //   let arr = [5, 5];
+      //   console.log(solution(arr));
+
+      //   function solution(n) {
+      //     let answer = 0;
+      //     for (let i = 1; i <= n; i++) {
+      //       if (n % i == 0) answer += i;
+      //     }
+      //     return answer;
+      //   }
+      //   console.log(solution(5));
+
+      // function solution(n) {
+      //   let answer = 0;
+      //   while (n > 0) {
+      //     answer += n % 10;
+      //     n = parseInt(n / 10);
+      //   }
+      //   return answer;
+      // }
+      //   console.log(solution(987));
+
+      // https://school.programmers.co.kr/learn/courses/30/lessons/12934
+      // https://school.programmers.co.kr/learn/courses/30/lessons/12932
+
+      //   function solution(n) {
+      //     if (Math.sqrt(n) % 1 != 0) {
+      //       return -1;
+      //     } else {
+      //       return (Math.sqrt(n) + 1) ** 2;
+      //     }
+      //   }
+      //   console.log(solution(4));
+
+      //   function solution(n) {
+      //     let answer = [];
+
+      //     while (n > 0) {
+      //       answer.push(n % 10);
+      //       n = parseInt(n / 10);
+      //     }
+      //     return answer;
+      //   }
+      //   console.log(solution(123213));
+
+      function solution(dartResult) {
+        let answer = [];
+        const SDT = {
+          S: 1,
+          D: 2,
+          T: 3,
+        };
+        dartResult.split("").forEach((item, index) => {
+          if (item === "*") {
+            answer[answer.length - 1] *= 2;
+            if (answer.length > 1) answer[answer.length - 2] *= 2;
+          } else if (item === "#") {
+            answer[answer.length - 1] *= -1;
+          } else if (Object.keys(SDT).includes(item)) {
+            answer[answer.length - 1] = Math.pow(
+              answer[answer.length - 1],
+              SDT[item]
+            );
+          } else if (item === "1" && dartResult[index + 1] === "0") {
+            answer.push(10);
+          } else if (dartResult[index - 1] !== "1") {
+            answer.push(+item);
+          }
+        });
+        return answer.reduce((prev, curr) => prev + curr, 0);
+
+        // dartResult.match(/\d+\S[\*|\#]*/g).forEach((item, idx) => {
+        //   item = item.match(/\d+|\S|[\*|\#]/g);
+        //   answer.push(Math.pow(item[0], SDT[item[1]]));
+        //   if (item[2] === "*") {
+        //     answer[idx] *= 2;
+        //     if (answer.length > 1) answer[idx - 1] *= 2;
+        //   }
+        //   if (item[2] === "#") answer[idx] *= -1;
+        // });
+
+        // return answer.reduce((prev, curr) => prev + curr, 0);
+      }
+    </script>
+  </body>
+</html>

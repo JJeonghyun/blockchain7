@@ -13,7 +13,7 @@
           this.children = [];
         }
         insert(data, index) {
-          if (index === pundefined) this.children.push(new TreeNode(data));
+          if (index === undefined) this.children.push(new TreeNode(data));
           else if (index > -1) this.children[index].push(new TreeNode(data));
         }
         insertNode(node) {
@@ -66,31 +66,55 @@
             } else return;
           }
         }
-        remove(data) {
-          let node = this.root;
+        remove(data, node = this.root) {
           if (!this.root) return;
-          if (node === data) {
-            if (data - node.left <= data - node.right) {
-              this.root = node.left;
-              node.left = node.left.left;
-            } else {
-              this.root = node.right;
-              node.right = node.left.left;
+          if (node.data > data) {
+            // 지우려는 데이터가 현재 노드의 데이터보다 작다
+            if (node.left) {
+              // 현재 노드의 왼쪽 노드가 있으면
+              node.left = this.remove(data, node.left);
             }
-          } else if (node.left === data) {
-          } else if (node.right === data) {
-          } else return;
+          } else if (node.data < data) {
+            // 지우려는 데이터가 현재 노드의 데이터보다 크다
+            if (node.right) {
+              // 현재 노드의 오른쪽 노드가 있으면
+              node.right = this.remove(data, node.right);
+            }
+          } else {
+            // 정답.
+            if (!node.left && !node.right) {
+              // left, right 모두 없을 때
+              // 하위 노드가 아예 없다.
+              if (node === this.root) this.root = undefined;
+              return undefined;
+            } else if (!node.left) {
+              // 왼쪽 노드가 없다. => 오른쪽 노드는 있다.
+              if (node === this.root) this.root = node.right;
+              return node.right;
+            } else if (!node.right) {
+              // 오른쪽 노드가 없다. => 왼쪽 노드는 있다.
+              if (node === this.root) this.root = node.left;
+              return node.left;
+            } else {
+              let tempNode = node.right;
+              while (tempNode.left) {
+                tempNode = tempNode.left;
+              }
+              node.data = tempNode.data;
+              node.right = this.remove(tempNode.data, node.right);
+            }
+          }
         }
       }
-      const testSearch = new BinarySearchTree();
-      testSearch.insert(227);
-      testSearch.insert(777);
-      testSearch.insert(727);
-      testSearch.insert(141);
-      testSearch.insert(1229);
-      testSearch.insert(18);
-      testSearch.insert(666);
-      console.log(testSearch);
+      // const testSearch = new BinarySearchTree();
+      // testSearch.insert(227);
+      // testSearch.insert(777);
+      // testSearch.insert(727);
+      // testSearch.insert(141);
+      // testSearch.insert(1229);
+      // testSearch.insert(18);
+      // testSearch.insert(666);
+      // console.log(testSearch);
     </script>
   </body>
 </html>
