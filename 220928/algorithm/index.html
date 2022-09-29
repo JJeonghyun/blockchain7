@@ -83,6 +83,7 @@
       //     n = parseInt(n / 10);
       //   }
       //   return answer;
+      //  return n.toString().split('').reduce((prev, curr)=>{prev + +curr}, 0);
       // }
       //   console.log(solution(987));
 
@@ -106,6 +107,9 @@
       //       n = parseInt(n / 10);
       //     }
       //     return answer;
+      //    return n.toString().split('').map((_,index,arr) =>{return +arr[arr.length -1 -index]})
+      //    _ :  통상적으로 값을 사용하지 않을 때 사용한다. << 우리는 배열 내의 아이템은 사용하지 않는다.
+      //    map, forEach 의 경우 item, index, array 순으로 매개변수를 받아 올 수 있다.
       //   }
       //   console.log(solution(123213));
 
