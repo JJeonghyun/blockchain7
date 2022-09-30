@@ -60,21 +60,34 @@
       //     return result[n];
       //   }
       //   console.log(solution(6));
-      //   let answer = [];
-      //   function towerHanoi(n, start, mid, end) {
-      //     if (n === 1) {
-      //       answer.push([start, end]);
-      //     } else {
-      //       towerHanoi(n - 1, start, end, mid);
-      //       answer.push([start, end]);
-      //       towerHanoi(n - 1, mid, start, end);
-      //     }
+
+      // function fibonacci(n) {
+      //   if (n <2 ) return n;
+      //   return fibonacci(n - 2) + fibonacci(n - 1);
+      // }
+      // let answer = [];
+      // function towerHanoi(n, start, mid, end) {
+      //   if (n === 1) {
+      //     answer.push([start, end]);
+      //   } else {
+      //     towerHanoi(n - 1, start, end, mid);
+      //     answer.push([start, end]);
+      //     towerHanoi(n - 1, mid, start, end);
       //   }
-      //   function solution(n) {
-      //     towerHanoi(n, 1, 2, 3);
-      //     return answer;
-      //   }
-      //   console.log(solution(2));
+      // }
+      // function solution(n) {
+      //   towerHanoi(n, 1, 2, 3);
+      //   return answer;
+      // }
+      // console.log(solution(3));
+      // function solution(n, start = 1, end = 3) {
+      //   if (n === 1) return [[start, end]];
+      //   return [
+      //     ...solution(n - 1, start, 6 - start - end),
+      //     [start, end],
+      //     ...solution(n - 1, 6 - start - end, end),
+      //   ];
+      // }
 
       //   function solution(n) {
       //     let answer = "";
@@ -138,27 +151,44 @@
       //   }
       //   console.log(solution(16));
 
-      function solution(n) {
-        // let numArr = [];
-        // numArr.push(
-        //   n
-        //     .toString()
-        //     .split("")
-        //     .map((item) => +item)
-        // );
-        // numArr.sort((a, b) => a - b);
-        // numArr.reverse();
-        let answer = 0;
+      // function solution(n) {
+      //   // let numArr = [];
+      //   // numArr.push(
+      //   //   n
+      //   //     .toString()
+      //   //     .split("")
+      //   //     .map((item) => +item)
+      //   // );
+      //   // numArr.sort((a, b) => a - b);
+      //   // numArr.reverse();
+      //   let answer = 0;
 
-        answer = +n
-          .toString()
-          .split("")
-          .sort((a, b) => b - a)
-          .join("");
+      //   answer = +n
+      //     .toString()
+      //     .split("")
+      //     .sort((a, b) => b - a)
+      //     .join("");
 
-        return answer;
-      }
-      console.log(solution(214));
+      //   return answer;
+      // }
+      // console.log(solution(214));
+      // function solution(s) {
+      //   return +s;
+      // }
+      // console.log(solution("1234"));
+      // console.log(solution("-1234"));
+      // function solution(s) {
+      //   let count = 0;
+      //   let tempNum = s.toLowerCase();
+      //   for (let i = 0; i < tempNum.length; i++) {
+      //     tempNum[i] == "p" ? count++ : tempNum[i] == "y" ? count-- : undefined;
+      //   }
+      //   return count ? false : true;
+      // }
+      // console.log(solution("pPoooyY"));
+      // console.log(solution("Pyy"));
+      // console.log(solution("P"));
+      // console.log(solution("qweqwe"));
     </script>
   </body>
 </html>
