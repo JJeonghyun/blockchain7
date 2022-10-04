@@ -1,0 +1,56 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>programmers</title>
+  </head>
+  <body>
+    <script>
+      //   function solution(s) {
+      //     return s.split("").sort().reverse().join("");
+      //   }
+      //   console.log(solution("Zbcdefg"));
+      function solution(babbling) {
+        let answer = 0;
+        let resultArr = [];
+
+        // let babyStr = ["aya", "ye", "woo", "ma"];
+        // let resultArr = [];
+        // for (let i = 0; i < babbling.length; i++) {
+        //   for (let j = 0; j < babyStr.length; j++) {
+        //     if (babbling[i] === babyStr[j]) {
+        //       resultArr.push(babbling[i].replace(babyStr[j], ""));
+        //     } else {
+        //       let temp = babbling[i];
+        //       temp.substr(temp.indexOf(babyStr[j]), babyStr.length);
+        //     }
+        //   }
+        // }
+        // return resultArr.length;
+
+        //"aya", "ye", "woo", "ma"
+        // 포함되어 있지만 그 외 문자열이 있으면 x
+        // indexOf, includes, replace()
+
+        for (let i = 0; i < babbling.length; i++) {
+          if (babbling[i].match(/(ayaaya|yeye|woowoo|mama)/)) continue;
+          resultArr.push(babbling[i].replace(/(aya|ye|woo|ma)/g, ""));
+        }
+        answer += resultArr.filter((item) => item == "").length;
+        // console.log(babbling[0].match(/(aya){2,}/));
+        // console.log(tempArr);
+
+        return answer;
+      }
+      console.log(solution(["aya", "yee", "u", "maa"]));
+      // console.log(solution(["aayaya", "yayae"]));
+      // console.log(solution(["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]));
+
+      //   function solution(message) {
+      //     return message.split("").length * 2;
+      //   }
+      //   console.log(solution("happy birthday!"));
+    </script>
+  </body>
+</html>
