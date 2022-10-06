@@ -4,7 +4,6 @@
   margin: 0;
 }
 .root {
-  margin: 0 4%;
   padding-top: 150px;
 }
 .title-box {
@@ -53,7 +52,23 @@
 }
 .next-page:hover {
   color: black;
-  text-decoration: underline;
+}
+.title-inner-item:nth-child(2) .next-page::after {
+  content: " \25BC";
+  font-size: 0.8rem;
+  vertical-align: 20%;
+}
+.title-inner-item:nth-child(4) .next-page::after {
+  content: " \25BC";
+  font-size: 0.8rem;
+  vertical-align: 20%;
+}
+.title-inner-item:nth-child(n + 2):hover::after {
+  content: "";
+  display: block;
+  width: 10px;
+  border-bottom: 2px solid black;
+  margin: 0 auto;
 }
 a:visited {
   text-decoration: none;
@@ -145,56 +160,64 @@ a:visited {
   height: 350px;
 }
 .logo-inner-box {
-  width: 41%;
-  margin: 30px auto;
+  width: fit-content;
+  margin: 0px auto;
+  padding: 40px 0;
 }
-.logo-item > img {
-  width: 50px;
+.logo-item img {
+  width: 30px;
   height: auto;
   margin: 0 40px;
 }
 .album-title {
-  border: 4px double black;
+  border: 5px solid black;
   border-top: none;
   border-left: none;
   border-right: none;
-
-  margin: 30px 0;
+  width: 70%;
+  margin: 30px auto;
   padding-bottom: 20px;
   font-size: 28px;
   font-weight: 700;
   color: gray;
 }
-.album-box {
+.album-outer-box {
   background-color: lightgrey;
   width: 100%;
-  padding: 0 10%;
+}
+.album-box {
+  width: 70%;
+  margin: 0 auto;
 }
 .album-flex {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
 .album-item {
-  width: 150px;
-  height: 280px;
-  padding: 15px 0;
-  margin: 0 5px;
+  width: 16.6%;
+  padding: 15px 10px;
 }
 .album-inner-box {
   background-color: white;
 }
-.album-inner-box > img {
-  width: 130px;
-  height: 80%;
-  margin: 0 10px;
+.album-item .img {
+  width: 100%;
+  height: 180px;
 }
+
 .inner-text {
   text-align: center;
   font-size: 12px;
-  padding: 5px 0;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .album-inner-box:hover > .img,

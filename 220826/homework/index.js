@@ -1,4 +1,6 @@
 let imgId = document.getElementById("mainImg");
+let moreClickSpan = document.getElementById("more-click");
+let moreClick = document.getElementsByClassName("image-box");
 
 let imgArr = new Array();
 imgArr[0] = "./Img/MainImg.jpg";
@@ -12,5 +14,14 @@ function repeatImg() {
   } else {
     repeatNum = -1;
     setTimeout(repeatImg, 100);
+  }
+}
+function openSeeMore() {
+  if (moreClick[1].style.display == "block") {
+    moreClick[1].style.display = "none";
+    moreClickSpan.innerText = "see more";
+  } else {
+    moreClick[1].style.display = "block";
+    moreClickSpan.innerText = "see stop";
   }
 }

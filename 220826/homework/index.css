@@ -4,7 +4,6 @@
   margin: 0;
 }
 .root {
-  /* margin: 0 4%; */
   padding-top: 150px;
 }
 .title-box {
@@ -109,12 +108,12 @@
   text-align: center;
 }
 .stitle-inner-box {
-  width: 360px;
+  width: 80%;
   margin: auto;
 }
 .stitle-item {
   width: 50px;
-  margin: auto;
+  margin: 0 auto;
   font-size: 32px;
   padding: 20px 0;
 }
@@ -123,41 +122,46 @@
   height: 50px;
 }
 .stitle-item:last-child {
-  width: 500px;
+  width: 80%;
+  text-align: center;
   color: grey;
+  letter-spacing: 10px;
 }
 .image-box {
+  /* min-width: 80%; */
   width: 80%;
+  /* max-width: 100%; */
   margin: 0 auto;
 }
 .img-flex {
   display: flex;
   width: 100%;
+
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 .img-item {
+  width: 16.6%;
   padding: 10px 5px;
   position: relative;
 }
 
 .img-item:nth-child(n) > img {
-  width: 180px;
-  height: 180px;
+  width: 100%;
 }
 .img-inner-text {
   position: absolute;
   display: none;
   top: 10px;
   left: 5px;
-  z-index: 3;
+  z-index: 1;
   color: white;
   background-color: black;
   opacity: 0.85;
   padding: 10% 5% 0px 10%;
-  width: 180px;
-  height: 180px;
+  width: 95%;
+  height: 90%;
   font-size: 0.7em;
 }
 .img-inner-text > div:nth-child(1) {
@@ -166,6 +170,7 @@
 }
 .img-inner-text > div:nth-child(2) {
   line-height: 17px;
+  padding-bottom: 15px;
 }
 .img-inner-text > a {
   padding-top: 5px;
@@ -178,12 +183,20 @@
   display: flex;
   justify-content: flex-end;
 }
-.inner-text-flex > img {
+.inner-text-flex img {
   width: 30px;
   border-radius: 50%;
 }
 .img-item:hover > .img-inner-text {
   display: block;
+}
+.title-button > img {
+  width: 50px;
+}
+.title-button {
+  border: none;
+  background-color: white;
+  text-align: center;
 }
 .next-page {
   text-decoration: none;
@@ -197,12 +210,85 @@
 }
 .next-page:hover {
   color: black;
-  text-decoration: underline;
 }
 a:visited {
   text-decoration: none;
 }
+.title-inner-item:nth-child(2) .next-page::after {
+  content: " \25BC";
+  font-size: 0.8rem;
+  vertical-align: 20%;
+}
+.title-inner-item:nth-child(4) .next-page::after {
+  content: " \25BC";
+  font-size: 0.8rem;
+  vertical-align: 20%;
+}
+.title-inner-item:nth-child(n + 2):hover::after {
+  content: "";
+  display: block;
+  width: 10px;
+  border-bottom: 2px solid black;
+  margin: 0 auto;
+}
+#more-box {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 35px;
+}
+#more-box > span {
+  color: gray;
+  font-weight: 200;
+  letter-spacing: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#more-box .image-box {
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+}
+#more-click .img-flex {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#more-click .img-inner-text {
+  position: absolute;
+  display: none;
+  top: 10px;
+  left: 5px;
+  z-index: 1;
+  color: white;
+  background-color: black;
+  opacity: 0.85;
+  padding: 10% 5% 0px 10%;
+  width: 180px;
+  height: 180px;
+  font-size: 0.7em;
+}
+#more-click .img-inner-text > div:nth-child(1) {
+  padding-bottom: 5px;
+  color: gray;
+}
+#more-click .img-inner-text > div:nth-child(2) {
+  line-height: 17px;
+  padding-bottom: 15px;
+}
 
+#footer-box {
+  width: 75%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.7em;
+  letter-spacing: 2px;
+  padding-bottom: 25px;
+}
 @media screen and (min-width: 1183px) {
   .title-bar {
     display: none;
