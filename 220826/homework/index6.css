@@ -25,7 +25,6 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 .title-inner-item {
   font-size: 1.2rem;
@@ -77,9 +76,7 @@
   border-bottom: 2px solid black;
   margin: 0 auto;
 }
-a:visited {
-  text-decoration: none;
-}
+
 .stitle-inner-box {
   width: 300px;
   margin: auto;
@@ -161,20 +158,39 @@ a:visited {
   flex-wrap: wrap;
 }
 .img-item {
-  width: 25%;
+  width: 24%;
+  padding: 1%;
 }
-.img-item:nth-child(n) > img {
+.img-item:nth-child(n) img {
+  width: 100%;
+}
+.img-box2 {
+  width: 65%;
+  margin: 0 auto;
+}
+.img-flex2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2% 0;
+}
+.img-item2 {
+  width: 50%;
+}
+.img-item2:nth-child(n) img {
   width: 100%;
 }
 .logo-inner-box {
   width: fit-content;
   margin: 0px auto;
-  padding: 40px 0;
+  padding: 1% 0;
 }
 .logo-item img {
   width: 30px;
   height: auto;
-  margin: 0 40px;
+  margin: 0 2.5rem;
 }
 .album-title {
   border-bottom: 5px solid black;
@@ -219,7 +235,6 @@ a:visited {
 }
 .album-item .img {
   width: 100%;
-  height: 180px;
 }
 
 .inner-text {
@@ -233,12 +248,12 @@ a:visited {
   white-space: nowrap;
 }
 
-.album-inner-box:hover > .img,
-.album-inner-box:hover > .inner-text {
+.album-inner-box:hover .img,
+.album-inner-box:hover .inner-text {
   opacity: 0.5;
 }
 
-.album-inner-box:hover > .inner-text {
+.album-inner-box:hover .inner-text {
   text-decoration: underline;
 }
 #footer-box {
