@@ -6,7 +6,7 @@
     <title>MondayKiz Home</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
-  <body onload="repeatImg()">
+  <body>
     <div class="root">
       <div class="title-box">
         <div class="title-inner-box">
@@ -15,19 +15,33 @@
               <a class="homepage" href="index.html">MONDAYKIZ COMPANY</a>
             </div>
             <div id="artist" class="title-inner-item">
-              <a class="next-page" href="./index5.html">ARTIST </a>
+              <a class="next-page" href="./index5.html">ARTIST</a>
+              <div class="next-page-content">
+                <a href="./index1.html">먼데이 키즈</a>
+                <a href="./index6.html">차가을</a>
+              </div>
             </div>
             <div class="title-inner-item">
               <a class="next-page" href="./index2.html">VIDEO</a>
             </div>
             <div class="title-inner-item">
               <a class="next-page" href="./index3.html">SCHEDUL</a>
+              <div class="next-page-content">
+                <a
+                  href="https://www.facebook.com/VolcalistMondaykiz/events/?refsrc=https%3A%2F%2Fm.facebook.com%2Fpg%2FVolcalistMondaykiz%2Fevents"
+                  target="_blank"
+                  >먼데이키즈 스케줄</a
+                >
+              </div>
             </div>
             <div class="title-inner-item">
               <a class="next-page" href="./index4.html">CONTACT</a>
             </div>
             <div class="title-inner-item">
-              <a class="next-page" href="https://www.everglow.co.kr/"
+              <a
+                class="next-page"
+                href="https://www.everglow.co.kr/"
+                target="_blank"
                 >EVERGLOW</a
               >
             </div>
@@ -42,17 +56,49 @@
           </div>
         </div>
       </div>
-      <ul id="hidden-bar" class="hidden-bar">
-        <li id="li-area"><a href="./index1.html">먼데이 키즈</a></li>
-        <li id="li-area2"><a href="./index6.html">차가을</a></li>
-      </ul>
-
+      <div class="hidden-title">
+        <div class="hidden-inner-box">
+          <div class="hidden-flex">
+            <div class="hidden-flex-item">
+              <button class="title-button">닫기</button>
+            </div>
+            <div class="hidden-flex-item">
+              <a href="./index5.html" target="_blank">
+                <ul>
+                  ARTIST
+                  <li>먼데이키즈</li>
+                  <li>차가을</li>
+                </ul>
+              </a>
+              <div class="dropdown"><button>▼</button></div>
+            </div>
+            <div class="hidden-flex-item">
+              <a href="index2.html" target="_blank">VIDEO</a>
+            </div>
+            <div class="hidden-flex-item">
+              <a href="./index3.html" target="_blank">
+                <ul>
+                  SCHEDULE
+                  <li>먼데이키즈 스케줄</li>
+                </ul>
+              </a>
+              <div class="dropdown"><button>▼</button></div>
+            </div>
+            <div class="hidden-flex-item">
+              <a href="./index4.html" target="_blank">CONTACT</a>
+            </div>
+            <div class="hidden-flex-item">
+              <a href="https://www.everglow.co.kr/" target="_blank">EVERGLOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="video-box">
         <div class="video-flex">
           <div class="video-item">
             <iframe
-              width="940"
-              height="650"
+              width="850"
+              height="700"
               src="https://www.youtube.com/embed/CLmMvOJMeTo"
               title="[세로라이브] 먼데이 키즈 - 아픈 기억으로 남은 그때로 (Live)"
               frameborder="0"
@@ -110,7 +156,7 @@
                 Great news!! Creatorlink has been awarded a <br />
                 #Gold trophy in the 2015 Horizon....
               </div>
-              <a href="./index.html" target="_blank">read more</a>
+              <div><a href="./index.html" target="_blank">read more</a></div>
               <div class="inner-text-flex">
                 <a href="./index.html" target="_blank">
                   <img
@@ -328,7 +374,7 @@
         </div>
       </div>
       <div id="more-box">
-        <span id="more-click" onclick="openSeeMore()">see more</span>
+        <span id="more-click">see more</span>
         <div class="image-box">
           <div class="img-flex">
             <div class="img-item">

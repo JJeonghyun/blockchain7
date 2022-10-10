@@ -2,9 +2,8 @@ let imgId = document.getElementById("mainImg");
 let moreClickSpan = document.getElementById("more-click");
 let moreClick = document.getElementsByClassName("image-box");
 let artist = document.getElementById("artist");
-let hiddenBar = document.getElementById("hidden-bar");
-let liArea = document.getElementById("li-area");
-let liArea2 = document.getElementById("li-area2");
+let hiddenTitle = document.getElementsByClassName("hidden-title");
+let titleButton = document.getElementsByClassName("title-button");
 
 let imgArr = new Array();
 imgArr[0] = "./Img/MainImg.jpg";
@@ -20,7 +19,17 @@ function repeatImg() {
     setTimeout(repeatImg, 100);
   }
 }
-function openSeeMore() {
+window.onload = () => {
+  repeatNum++;
+  if (repeatNum < imgArr.length) {
+    imgId.src = imgArr[repeatNum];
+    setTimeout(repeatImg, 5000);
+  } else {
+    repeatNum = -1;
+    setTimeout(repeatImg, 100);
+  }
+};
+moreClickSpan.addEventListener("click", () => {
   if (moreClick[1].style.display == "block") {
     moreClick[1].style.display = "none";
     moreClickSpan.innerText = "see more";
@@ -28,21 +37,20 @@ function openSeeMore() {
     moreClick[1].style.display = "block";
     moreClickSpan.innerText = "see stop";
   }
-}
+});
 
-artist.addEventListener("mouseover", () => {
-  hiddenBar.style.width = "fit-content";
-  hiddenBar.style.height = "100px";
-});
-liArea.addEventListener("mouseover", () => {
-  hiddenBar.style.width = "fit-content";
-  hiddenBar.style.height = "100px";
-});
-liArea2.addEventListener("mouseover", () => {
-  hiddenBar.style.width = "fit-content";
-  hiddenBar.style.height = "100px";
-});
+// artist.addEventListener("mouseover", () => {
+//   hiddenBar.style.width = "fit-content";
+//   hiddenBar.style.height = "100px";
+// });
 
 // artist.addEventListener("mouseleave", () => {
 //   hiddenBar.style.height = "0";
 // });
+[...titleButton].forEach((elem) => {
+  elem.addEventListener("click", () => {
+    if (hiddenTitle[0].style.display == "none")
+      hiddenTitle[0].style.display = "block";
+    else hiddenTitle[0].style.display = "none";
+  });
+});
