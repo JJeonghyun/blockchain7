@@ -130,7 +130,7 @@ a:visited {
   z-index: 5;
 }
 .hidden-inner-box {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
   padding: 10px;
 }
@@ -145,29 +145,49 @@ a:visited {
   width: 100%;
   color: white;
   font-size: 1.5rem;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 .title-button,
 .dropdown-button {
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, -1);
   cursor: pointer;
   padding: 5px 10px;
+  border: none;
 }
 .title-button {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   width: fit-content;
 }
 .dropdown-button {
   width: max-content;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
-
+ul {
+  width: 100%;
+}
+.hidden-flex-item:first-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hidden-flex-item:first-child .title-button {
+  position: relative;
+  display: inline-block;
+}
+.hidden-flex-item:first-child .title-button::after {
+  content: "\00d7";
+  font-size: 3rem;
+  line-height: 3rem;
+}
 .hidden-flex-item:nth-child(2) {
-  padding-top: 50px;
+  padding-top: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hidden-flex-item:nth-child(n + 1) {
+  font-size: 1.3rem;
 }
 .hidden-flex-item:nth-child(2) a {
   width: 95%;
@@ -176,11 +196,19 @@ a:visited {
   text-decoration: none;
   color: white;
 }
-.hidden-flex-item li {
-  display: none;
+.hidden-li-artist,
+.hidden-li-schedule {
+  visibility: hidden;
+  height: 0;
   list-style: none;
   font-size: 1rem;
+  padding: 0;
+}
+.appear {
+  height: 50px;
+  visibility: visible;
   padding: 5% 0 0 5%;
+  transition: padding 0.3s;
 }
 .hidden-flex-item:nth-child(4) {
   display: flex;
@@ -355,5 +383,28 @@ a:visited {
   #footer-box {
     width: 95%;
     font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title-inner-item:first-child a {
+    font-size: 1rem;
+  }
+  .inner-text {
+    font-size: 0.8rem;
+  }
+  #see-details {
+    padding: 5px 30px;
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .title-inner-item:first-child a {
+    font-size: 1rem;
+  }
+  .inner-text {
+    font-size: 0.7rem;
+  }
+  #see-details {
+    padding: 2px 15px;
   }
 }

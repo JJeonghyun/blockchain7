@@ -7,6 +7,9 @@ let titleButton = document.getElementsByClassName("title-button");
 let dropDownButton = document.getElementsByClassName("dropdown-button");
 let hiddenLiArtist = document.getElementsByClassName("hidden-li-artist");
 let hiddenLiSchedule = document.getElementsByClassName("hidden-li-schedule");
+let hiddenLi = document.getElementsByTagName("li");
+
+let liArr = [hiddenLi[0], hiddenLi[1]];
 
 let imgArr = new Array();
 imgArr[0] = "./Img/MainImg.jpg";
@@ -41,15 +44,6 @@ moreClickSpan.addEventListener("click", () => {
     moreClickSpan.innerText = "see stop";
   }
 });
-
-// artist.addEventListener("mouseover", () => {
-//   hiddenBar.style.width = "fit-content";
-//   hiddenBar.style.height = "100px";
-// });
-
-// artist.addEventListener("mouseleave", () => {
-//   hiddenBar.style.height = "0";
-// });
 [...titleButton].forEach((elem) => {
   elem.addEventListener("click", () => {
     if (hiddenTitle[0].style.display == "none")
@@ -57,15 +51,22 @@ moreClickSpan.addEventListener("click", () => {
     else hiddenTitle[0].style.display = "none";
   });
 });
+
 dropDownButton[0].addEventListener("click", () => {
-  [...hiddenLiArtist].forEach((elem) => {
-    if (elem.style.display == "block") elem.style.display = "none";
-    else elem.style.display = "block";
+  [...liArr].forEach((elem) => {
+    elem.classList.toggle("appear");
   });
+  if (dropDownButton[0].style.paddingBottom == "") {
+    dropDownButton[0].style.paddingBottom = "104px";
+  } else if (dropDownButton[0].style.paddingBottom == "104px") {
+    dropDownButton[0].style.paddingBottom = "";
+  }
 });
 dropDownButton[1].addEventListener("click", () => {
-  [...hiddenLiSchedule].forEach((elem) => {
-    if (elem.style.display == "block") elem.style.display = "none";
-    else elem.style.display = "block";
-  });
+  hiddenLi[2].classList.toggle("appear");
+  if (dropDownButton[1].style.paddingBottom == "") {
+    dropDownButton[1].style.paddingBottom = "55px";
+  } else if (dropDownButton[1].style.paddingBottom == "55px") {
+    dropDownButton[1].style.paddingBottom = "";
+  }
 });
