@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
 }
+
 .root {
   padding-top: 55px;
 }
@@ -202,7 +203,7 @@ ul {
   height: 50px;
   visibility: visible;
   padding: 5% 0 0 5%;
-  transition: padding 0.3s;
+  transition: padding-top 0.3s;
 }
 .hidden-flex-item:nth-child(4) {
   display: flex;
@@ -407,7 +408,7 @@ ul {
 .nav:hover {
   background-color: dimgray;
   color: white;
-  transition: all 0.5s;
+  transition: background-color, color 0.5s;
 }
 @media screen and (min-width: 1183px) {
   .title-bar {
@@ -583,6 +584,11 @@ ul {
 @media screen and (max-width: 570px) {
   .img-inner-text > div:nth-child(2) {
     white-space: nowrap;
+  }
+}
+@media screen and (max-width: 480px) {
+  .title-inner-item:first-child a {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 432px) {

@@ -7,6 +7,10 @@ let hiddenLi = document.getElementsByTagName("li");
 
 let liArr = [hiddenLi[0], hiddenLi[1]];
 
+window.onresize = () => {
+  if (window.innerWidth > 769) hiddenTitle[0].style.display = "none";
+};
+
 [...titleButton].forEach((elem) => {
   elem.addEventListener("click", () => {
     if (hiddenTitle[0].style.display == "none")

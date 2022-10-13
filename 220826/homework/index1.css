@@ -209,7 +209,7 @@ ul {
   height: 50px;
   visibility: visible;
   padding: 5% 0 0 5%;
-  transition: padding 0.3s;
+  transition: padding-top 0.3s;
 }
 .hidden-flex-item:nth-child(4) {
   display: flex;

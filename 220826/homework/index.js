@@ -19,21 +19,14 @@ function repeatImg() {
   repeatNum++;
   if (repeatNum < imgArr.length) {
     imgId.src = imgArr[repeatNum];
-    setTimeout(repeatImg, 5000);
+    setTimeout(repeatImg, 4500);
   } else {
     repeatNum = -1;
     setTimeout(repeatImg, 100);
   }
 }
 window.onload = () => {
-  repeatNum++;
-  if (repeatNum < imgArr.length) {
-    imgId.src = imgArr[repeatNum];
-    setTimeout(repeatImg, 5000);
-  } else {
-    repeatNum = -1;
-    setTimeout(repeatImg, 100);
-  }
+  repeatImg();
 };
 moreClickSpan.addEventListener("click", () => {
   if (moreClick[1].style.display == "block") {
@@ -51,6 +44,10 @@ moreClickSpan.addEventListener("click", () => {
     else hiddenTitle[0].style.display = "none";
   });
 });
+
+window.onresize = () => {
+  if (window.innerWidth > 769) hiddenTitle[0].style.display = "none";
+};
 
 dropDownButton[0].addEventListener("click", () => {
   [...liArr].forEach((elem) => {
