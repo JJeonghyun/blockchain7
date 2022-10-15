@@ -329,7 +329,6 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
   padding-bottom: 10%;
-  /* white-space: nowrap; */
 }
 .img-inner-text a {
   background-color: black;
