@@ -22,5 +22,5 @@ generator.next();
 // while (!generator.done) {
 //   // done 프로퍼티는 generator가 끝이 났는가 ?
 //   generator.next();
-//   // next메서드는  코드를 실행 한다.(단, yeild에서 멈춘다.)
+//   // next메서드는  코드를 실행 한다.(단, yield에서 멈춘다.)
 // }
