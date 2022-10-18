@@ -1,0 +1,53 @@
+1. 서버에 관련된 기본 라이브러리를 초기화한다.
+    const express = require("express");
+    const session = require("express-session");
+    const morgan = require("morgan");
+    const dotenv = require("dotenv");
+    const path = require("path");
+    const cookieParser = require("cookie-parser");
+
+2. 환경설정 파일을 로드한다.
+    dotenv.config();
+
+3. 서버를 생성한다.
+    const app = express();
+
+4. 서버내의 프로퍼티를 세팅, 초기화 한다.
+    app.set("port", process.env.PORT || 8080);
+
+5. use메서드를 통해 미들웨어 등록 한다.
+    app.use((req, res, next) => {
+        if (process.env.NODE_ENV === "production") morgan("combined")(req, res, next);
+        else morgan("dev")(req, res, next);
+    });
+
+6. use메서드를 통해 기본적으로 연결할 폴더를 연결 한다.
+    app.use("/", express.static(path.join(__dirname, "public")));
+
+7. use메서드를 통해 데이터를 주고받는 형식을 선언한다.
+    app.use(express.json());
+
+8. use메서드를 통해 querystring을 파싱할 때 사용할 방법을 설정 한다.
+    app.use(express.urlencoded({ extended: false }));
+
+9. use메서드를 통해 쿠키 파싱
+    app.use(cookieParser(process.env.COOKIE_SECRET));
+
+10. use메서드를 통해 세션을 설정한다. 
+    app.use(
+    session({
+        resave: false,
+        saveUninitialized: false,
+        secret: process.env.COOKIE_SECRET,
+        cookie: {
+            httpOnly: true,
+            secure: false,
+        },
+        name: "session-cookie",
+    })
+    );
+
+11. 서버 열기
+    app.listen(app.get("port"), () => {
+        console.log("Server Opened");
+    });
