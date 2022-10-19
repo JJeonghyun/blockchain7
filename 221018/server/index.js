@@ -36,6 +36,7 @@ app.use((req, res, next) => {
   else morgan("dev")(req, res, next);
   // dev는 개발모드로 사용된다
 });
+`  `;
 
 app.use("/", express.static(path.join(__dirname, "public")));
 // '/' : 서버의 root, 즉 서버에 접근 시에 라우터가 없을 때
