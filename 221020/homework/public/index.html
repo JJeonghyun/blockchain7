@@ -1,0 +1,38 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash Board</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="root">
+      <div class="title">게시판</div>
+      <form id="todo-form">
+        <div>
+          <label for="do-name"
+            >등록할 게시판 제목 :
+            <input type="text" id="do-name" name="do-name"
+          /></label>
+        </div>
+        <div>
+          <div>
+            <label for="board-body">게시판 내용</label>
+          </div>
+          <div>
+            <textarea
+              id="board-body"
+              name="board-body"
+              rows="10"
+              cols="50"
+            ></textarea>
+          </div>
+        </div>
+      </form>
+      <ul id="list"></ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
