@@ -19,6 +19,7 @@ const path = require("path");
 // const { route } = require("./routes/index.js");
 
 const boardList = [];
+const userList = [];
 
 dotenv.config();
 
@@ -60,17 +61,36 @@ app.use(
 
 // app.use("/api", routes);
 
+app.get("/api/user", (req, res) => {
+  console.log(req.query);
+  res.send({
+    status: 200,
+    list: userList,
+  });
+});
+
+app.post("/api/user/add", (req, res) => {
+  userList.push(req.body);
+  console.log(userList);
+  console.log(userList.length);
+  res.send({ status: 200, data: "회원가입 성공!", list: req.body });
+  // axios로 보낸 post형식 데이터를 받는다
+});
+app.post("/api/user/info", (req, res) => {
+  userList.push(req.body);
+  res.send({ status: 200, data: "로그인 완료", list: req.body });
+  // axios로 보낸 post형식 데이터를 받는다
+});
+
+// -------------------------------------------------------------------------------
+
 app.post("/api/board/add", (req, res) => {
-  //   boardList.push(req.body);
   boardList.unshift(req.body);
   console.log(boardList);
   console.log(boardList.length);
   res.send({ status: 200, data: "정상 입력 완료" });
-
-  // axios로 보낸 post형식 데이터를 받는다
 });
 app.post("/api/board/delete", (req, res) => {
-  console.log(req.body);
   boardList.splice(+req.body.count * 5 + +req.body.num, 1);
   res.send({ status: 200, data: "delete" });
 });

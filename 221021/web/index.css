@@ -176,3 +176,6 @@ label {
   resize: none;
   padding: 10px;
 }
+#info-box-container label {
+  display: inline-block;
+}
