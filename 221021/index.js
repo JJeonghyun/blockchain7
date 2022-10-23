@@ -14,12 +14,27 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const fs = require("fs");
 
 // const routes = require("./routes/index.js");
 // const { route } = require("./routes/index.js");
 
 const boardList = [];
 const userList = [];
+let checkId = false;
+let userObj = {};
+
+// fs.writeFile('./message.txt', JSON.stringify(userObj), 'utf8', (err) => {
+//   if (err) throw err;
+//   console.log('The file has been saved!');
+//   console.log(JSON.stringify(userObj))
+// });
+
+// fs.readFile('./message.txt', 'utf8', (err, data) => {
+//   if (err) throw err;
+//   console.log(data);
+//   response.end(data);
+// })
 
 dotenv.config();
 
@@ -62,7 +77,6 @@ app.use(
 // app.use("/api", routes);
 
 app.get("/api/user", (req, res) => {
-  console.log(req.query);
   res.send({
     status: 200,
     list: userList,
@@ -70,15 +84,46 @@ app.get("/api/user", (req, res) => {
 });
 
 app.post("/api/user/add", (req, res) => {
-  userList.push(req.body);
-  console.log(userList);
-  console.log(userList.length);
-  res.send({ status: 200, data: "회원가입 성공!", list: req.body });
+  if (!userList.length) {
+    userList.push(req.body);
+  } else {
+    userList.forEach((elem) => {
+      checkId = false;
+      if (elem.id === req.body.id) {
+        checkId = true;
+      } else userList.push(req.body);
+    });
+  }
+  res.send({
+    status: 200,
+    data: "회원가입 성공!",
+    list: userList,
+    checked: checkId,
+    id: req.body.id,
+  });
   // axios로 보낸 post형식 데이터를 받는다
 });
 app.post("/api/user/info", (req, res) => {
-  userList.push(req.body);
-  res.send({ status: 200, data: "로그인 완료", list: req.body });
+  let checkNum = 0;
+  let message = "";
+  userList.forEach((elem, index) => {
+    if (req.body.id === elem.id) {
+      checkNum = index;
+    } else if (req.body.id !== elem.id) {
+      message = "아이디가 틀렸습니다.";
+    } else if (req.body.id === elem.id && req.body.pw !== elem.pw) {
+      message = "비밀번호가 틀렸습니다.";
+    } else {
+      message = "아이디와 비밀번호가 맞지 않습니다.";
+    }
+  });
+  res.send({
+    status: 200,
+    data: "로그인 완료",
+    list: userList,
+    index: checkNum,
+    message: message,
+  });
   // axios로 보낸 post형식 데이터를 받는다
 });
 
