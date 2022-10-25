@@ -8,12 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div id="info-box-container">
-      <label for="user-id">ID : <input type="text" id="info-id" /></label>
-      <label for="user-pw">PW : <input type="text" id="info-pw" /></label>
-      <button id="sign-in-button">로그인</button>
-      <button id="sign-up-button">회원가입</button>
-    </div>
     <div id="root">
       <div id="board">
         <ul id="list">
@@ -30,6 +24,24 @@
       <div id="user-input-container">
         <div id="menu-btn-box">
           <img src="./imgs/bars-solid.svg" alt="menu button" id="menu-btn" />
+        </div>
+        <div id="info-box-container">
+          <label for="user-id">ID : <input type="text" id="info-id" /></label>
+          <label for="user-pw">PW : <input type="text" id="info-pw" /></label>
+
+          <div id="sign-up-box">
+            <label for="user-name"
+              >이름 : <input type="text" id="user-name" class="sign-up"
+            /></label>
+            <label for="user-gender"
+              >성별 : <input type="text" id="user-gender" class="sign-up"
+            /></label>
+            <label for="user-age"
+              >나이 : <input type="text" id="user-age" class="sign-up"
+            /></label>
+          </div>
+          <button id="sign-in-button">로그인</button>
+          <button id="sign-up-button">회원가입</button>
         </div>
         <form id="board-add">
           <label for="board-title"

@@ -153,6 +153,7 @@ html {
   width: 280px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  display: none;
 }
 #user-input-container.on #board-add {
   opacity: 1;
@@ -176,6 +177,18 @@ label {
   resize: none;
   padding: 10px;
 }
+#info-box-container {
+  display: flex;
+  width: 75%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
 #info-box-container label {
-  display: inline-block;
+  display: block;
+  width: fit-content;
+}
+#sign-up-box {
+  display: none;
 }
