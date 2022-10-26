@@ -24,7 +24,7 @@ router.post("/regist", (req, res) => {
   //     // 10 * 60 * 1000 << 1000 => 1s * 60 => 1m * 10 => 10분
   //     // 30초로 수정
   //   });
-  // 응답으로 쿠키 추가
+  // // 응답으로 쿠키 추가
   if (!userlist[req.body.id]) {
     userlist[req.body.id] = {
       name: req.body.name,

@@ -38,9 +38,11 @@ app.use(
 );
 
 app.get("/api/user", (req, res) => {
+  console.log(req.query.loginIdx);
   res.send({
     status: 200,
     list: userList,
+    indx: req.query.loginIdx,
   });
 });
 
@@ -48,12 +50,28 @@ app.post("/api/user/add", (req, res) => {
   if (!userList.length) {
     userList.push(req.body);
   } else {
-    userList.forEach((elem) => {
+    for (let i = 0; i < userList.length; i++) {
       checkId = false;
-      if (elem.id === req.body.id) {
+      if (userList[i].id == req.body.id) {
         checkId = true;
-      } else userList.push(req.body);
-    });
+        return res.send({
+          status: 200,
+          data: "이미 등록된 회원입니다!",
+          list: userList,
+          checked: checkId,
+          id: req.body.id,
+        });
+      } else {
+        userList.push(req.body);
+        return res.send({
+          status: 200,
+          data: "회원가입 성공!",
+          list: userList,
+          checked: checkId,
+          id: req.body.id,
+        });
+      }
+    }
   }
   res.send({
     status: 200,
@@ -66,19 +84,14 @@ app.post("/api/user/add", (req, res) => {
 app.post("/api/user/info", (req, res) => {
   let checkNum = 0;
   let message = "";
+  console.log(userList);
   userList.forEach((elem, index) => {
-    if (req.body.id === elem.id && req.body.pw === elem.pw) {
+    if (elem.id === req.body.id && elem.pw === req.body.pw) {
       checkNum = index;
-    } else if (req.body.id !== elem.id) {
-      message = "아이디가 틀렸습니다.";
-    } else if (req.body.id === elem.id && req.body.pw !== elem.pw) {
-      message = "비밀번호가 틀렸습니다.";
-    } else {
-      message = "아이디와 비밀번호가 맞지 않습니다.";
+      message = "로그인 완료";
     }
   });
   res.send({
-    status: 200,
     data: "로그인 완료",
     list: userList,
     index: checkNum,
@@ -92,7 +105,11 @@ app.post("/api/board/add", (req, res) => {
   boardList.unshift(req.body);
   console.log(boardList);
   console.log(boardList.length);
-  res.send({ status: 200, data: "정상 입력 완료" });
+  res.send({
+    status: 200,
+    data: "정상 입력 완료",
+    uptime: boardList[req.body.index].uptime,
+  });
 });
 app.post("/api/board/delete", (req, res) => {
   boardList.splice(+req.body.count * 5 + +req.body.num, 1);

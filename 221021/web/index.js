@@ -1,6 +1,3 @@
-document.getElementById("menu-btn").onclick = function (e) {
-  document.getElementById("user-input-container").classList.toggle("on");
-};
 const infoElem = document.getElementById("info-box-container");
 const infoId = document.getElementById("info-id");
 const infoPw = document.getElementById("info-pw");
@@ -12,13 +9,21 @@ const userAge = document.getElementById("user-age");
 const signUpBox = document.getElementById("sign-up-box");
 
 let controlNum = 0;
-let signInCheck = 0;
+let userIdIdx = 0;
+let boardTime = 0;
+let loginIdx = 0;
+
+document.getElementById("menu-btn").onclick = function (e) {
+  document.getElementById("user-input-container").classList.toggle("on");
+};
+
 function userInfo() {
   const data = axios
-    .get("/api/user?signInCheck=" + signInCheck)
+    .get("/api/user?loginIdx=" + loginIdx)
     .then((data) => {
       data.data.list.forEach((data, index) => {
         if (data.id === infoId.value) {
+          loginIdx = index;
           const tempDiv = document.createElement("div");
           const tempSignOutButton = document.createElement("button");
 
@@ -30,6 +35,7 @@ function userInfo() {
           signUpButton.before(tempSignOutButton);
 
           tempDiv.innerHTML = `${data.id} 님 어서오세용~! `;
+
           infoId.value = infoPw.value = "";
           infoElem.append(tempDiv);
           controlNum = 1;
@@ -38,6 +44,7 @@ function userInfo() {
             tempSignOutButton.remove();
             signUpButton.before(signInButton);
             controlNum = 0;
+            document.getElementById("board-add").style.display = "none";
             infoId.value = infoPw.value = "";
             tempDiv.innerHTML = "";
           };
@@ -58,16 +65,21 @@ signInButton.onclick = async function (e) {
     infoPw.focus();
     return;
   }
-  document.getElementById("board-add").style.display = "block";
+
   try {
     const data = await axios.post("/api/user/info", {
       id: infoId.value,
       pw: infoPw.value,
     });
-    if (data.data.message !== "") {
-      console.log(data.data.message);
+
+    if (data.data.data === "로그인 완료") {
+      document.getElementById("board-add").style.display = "block";
+      userInfo();
+    } else {
+      console.log("잘못된 회원 정보입니다.");
       infoId.value = infoPw.value = "";
-    } else userInfo();
+      return;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -128,10 +140,12 @@ signUpButton.onclick = function (e) {
       gender: userGender.value,
       age: userAge.value,
     });
-    if (data.data.checked == true) {
+    if (data.data.checked === true) {
       console.log(data.data.id + "는 이미 등록된 회원입니다.");
     } else {
       console.log(data.data.id + "님 회원가입 성공 !");
+      console.log(data.data.list);
+
       signUpBox.style.display = "none";
       signInButton.style.display = "block";
       signUpButton.style.display = "block";
@@ -158,12 +172,15 @@ document.getElementById("board-add").onsubmit = async function (e) {
     return;
   }
   try {
+    const userIdx = await axios.post("/api/user/info");
+    let idx = userIdx.data.index;
     const data = await axios.post("/api/board/add", {
       title: e.target["board-title"].value,
       text: e.target["board-text"].value,
-      uptime: Date.now(),
+      uptime: new Date().toLocaleString(),
+      index: idx,
     });
-    console.log(data.data);
+
     if (data.data.status == 200) {
       e.target["board-title"].value = e.target["board-text"].value = "";
     }
@@ -178,8 +195,20 @@ let count = 0; // 현재 페이지
 // };
 const pageElem = document.getElementById("page");
 const listElem = document.getElementById("list");
-// let tempLength = [];
-// let tempNum = 0;
+
+async function uploadUser(userId) {
+  try {
+    const data = await axios.post("/api/user/add");
+    data.data.list.forEach((elem, index) => {
+      if (elem.id === userId) {
+        userIdIdx = index;
+      }
+    });
+    return data.data.list[userIdIdx].id;
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 async function getList() {
   try {
@@ -202,17 +231,8 @@ async function getList() {
     }
 
     listElem.innerHTML = "";
-    // const listLength = data.data.list.length;
-    // if (!listLength) {
-    //   tempNum = 1;
-    // } else {
-    //   for (let i = 1; i < listLength + 1; i++) {
-    //     tempLength.unshift(i);
-    //   }
-    //   tempNum = tempLength.pop();
-    // }
 
-    data.data.list.forEach((data, index) => {
+    data.data.list.forEach(async (data, index) => {
       const tempLi = document.createElement("li");
       const tempTitle = document.createElement("div");
       const tempText = document.createElement("div");
@@ -236,20 +256,17 @@ async function getList() {
       tempImg.src = "./imgs/angle-up-solid.svg";
       tempImg.alt = "list-item-btn";
 
-      tempH3.innerText = data.title;
+      tempH3.innerText =
+        "제목 : " +
+        data.title +
+        " " +
+        (await uploadUser(infoId.value)) +
+        " 님 작성 " +
+        data.uptime;
+
       tempP.innerText = data.text;
       tempTextArea.value = data.text;
       tempBtnBox.classList.add("list-btn-box");
-
-      // const userData = axios
-      //   .post("/api/user/add")
-      //   .then((data) => {
-      //     console.log(data.data.list[index].id);
-      //     const tempNum = data.data.list[index].id
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
 
       tempDelBtn.src = "./imgs/bug-solid.svg";
       tempDelBtn.alt = "delete-btn";

@@ -10,15 +10,7 @@
   <body>
     <div id="root">
       <div id="board">
-        <ul id="list">
-          <!-- <li>
-            <div class="title">
-              <h3>213123</h3>
-              <img src="./imgs/angle-up-solid.svg" alt="" />
-            </div>
-            <div class="text hidden-text"><p>123123123</p></div>
-          </li> -->
-        </ul>
+        <ul id="list"></ul>
         <ul id="page"></ul>
       </div>
       <div id="user-input-container">
@@ -26,18 +18,37 @@
           <img src="./imgs/bars-solid.svg" alt="menu button" id="menu-btn" />
         </div>
         <div id="info-box-container">
-          <label for="user-id">ID : <input type="text" id="info-id" /></label>
-          <label for="user-pw">PW : <input type="text" id="info-pw" /></label>
+          <label for="user-id"
+            >ID : <input type="text" id="info-id" placeholder="ID"
+          /></label>
+          <label for="user-pw"
+            >PW : <input type="password" id="info-pw" placeholder="PW"
+          /></label>
 
           <div id="sign-up-box">
             <label for="user-name"
-              >이름 : <input type="text" id="user-name" class="sign-up"
+              >이름 :
+              <input
+                type="text"
+                id="user-name"
+                class="sign-up"
+                placeholder="이름"
             /></label>
             <label for="user-gender"
-              >성별 : <input type="text" id="user-gender" class="sign-up"
+              >성별 :
+              <input
+                type="text"
+                id="user-gender"
+                class="sign-up"
+                placeholder="성별"
             /></label>
             <label for="user-age"
-              >나이 : <input type="text" id="user-age" class="sign-up"
+              >나이 :
+              <input
+                type="text"
+                id="user-age"
+                class="sign-up"
+                placeholder="나이"
             /></label>
           </div>
           <button id="sign-in-button">로그인</button>
@@ -64,6 +75,8 @@
         </form>
       </div>
     </div>
+    <!-- JavaScript Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
     <script src="./index.js"></script>
   </body>
 </html>
