@@ -138,6 +138,7 @@ async function getList() {
           }
         } else {
           tempTextarea.value = data.text;
+
           tempText.classList.add("edit");
         }
       };

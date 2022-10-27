@@ -12,6 +12,7 @@ let controlNum = 0;
 let userIdIdx = 0;
 let boardTime = 0;
 let loginIdx = 0;
+let commentIdx = 0;
 
 document.getElementById("menu-btn").onclick = function (e) {
   document.getElementById("user-input-container").classList.toggle("on");
@@ -32,12 +33,13 @@ function userInfo() {
           tempDiv.classList.add("button-box");
 
           signInButton.remove();
-          signUpButton.before(tempSignOutButton);
+          // signUpButton.before(tempSignOutButton);
 
           tempDiv.innerHTML = `${data.id} 님 어서오세용~! `;
 
           infoId.value = infoPw.value = "";
-          infoElem.append(tempDiv);
+          document.getElementById("board-add").before(tempDiv);
+          tempDiv.after(tempSignOutButton);
           controlNum = 1;
 
           tempSignOutButton.onclick = function (e) {
@@ -45,6 +47,7 @@ function userInfo() {
             signUpButton.before(signInButton);
             controlNum = 0;
             document.getElementById("board-add").style.display = "none";
+            infoElem.style.display = "block";
             infoId.value = infoPw.value = "";
             tempDiv.innerHTML = "";
           };
@@ -74,6 +77,8 @@ signInButton.onclick = async function (e) {
 
     if (data.data.data === "로그인 완료") {
       document.getElementById("board-add").style.display = "block";
+      infoElem.style.display = "none";
+
       userInfo();
     } else {
       console.log("잘못된 회원 정보입니다.");
@@ -244,6 +249,11 @@ async function getList() {
       const tempDelBtn = document.createElement("img");
       const tempEditBtn = document.createElement("img");
       const tempCancelBtn = document.createElement("img");
+      const tempCommentBox = document.createElement("div");
+      const tempCommentText = document.createElement("input");
+      const tempCommentBtn = document.createElement("button");
+
+      tempLi.classList.add("list-inner-li");
 
       tempTitle.classList.add("title");
       tempTitle.onclick = function (e) {
@@ -270,7 +280,7 @@ async function getList() {
 
       tempDelBtn.src = "./imgs/bug-solid.svg";
       tempDelBtn.alt = "delete-btn";
-      tempBtnBox.classList.add("delete");
+      tempDelBtn.classList.add("delete");
       tempDelBtn.onclick = async function (e) {
         try {
           const data = await axios.post("/api/board/delete", {
@@ -311,8 +321,9 @@ async function getList() {
         tempText.classList.remove("edit");
       };
 
-      tempBtnBox.append(tempDelBtn);
       tempBtnBox.append(tempEditBtn);
+      tempBtnBox.append(tempDelBtn);
+
       tempBtnBox.append(tempCancelBtn);
 
       tempTitle.append(tempH3);
@@ -323,6 +334,73 @@ async function getList() {
       tempLi.append(tempTitle);
       tempLi.append(tempText);
       listElem.append(tempLi);
+
+      tempCommentBox.innerText = "댓글 : ";
+      tempCommentBtn.innerHTML = "댓글 추가";
+      tempCommentBox.setAttribute("class", "comment-box");
+      tempCommentBtn.classList.add("comment-btn");
+      tempCommentText.setAttribute("type", "text");
+      tempCommentText.setAttribute("class", "comment");
+      tempCommentBox.append(tempCommentText);
+      tempCommentText.after(tempCommentBtn);
+
+      [...document.getElementsByClassName("list-inner-li")].forEach((elem) => {
+        elem.after(tempCommentBox);
+      });
+
+      tempCommentBtn.onclick = async function (e) {
+        try {
+          console.log("여기는 댓글추가야");
+          const tempCommentBox2 = document.createElement("div");
+          const tempCommentCancelBtn = document.createElement("button");
+          const tempCommentEditBtn = document.createElement("button");
+
+          tempCommentCancelBtn.innerHTML = "댓글 삭제";
+          tempCommentEditBtn.innerHTML = "댓글 수정";
+          tempCommentBox2.innerHTML =
+            (await uploadUser(infoId.value)) + " : " + tempCommentText.value;
+
+          tempCommentBox2.append(tempCommentEditBtn);
+          tempCommentEditBtn.after(tempCommentCancelBtn);
+          tempCommentBox.before(tempCommentBox2);
+          tempCommentText.value = "";
+
+          tempCommentCancelBtn.onclick = () => {
+            tempCommentBox2.style.display = "none";
+          };
+          tempCommentEditBtn.onclick = function (e) {
+            const tempModifyBtn = document.createElement("button");
+            const tempModifyCancelBtn = document.createElement("button");
+            const tempModifyText = document.createElement("input");
+
+            tempModifyBtn.innerHTML = "확인";
+            tempModifyCancelBtn.innerHTML = "취소";
+            tempModifyText.setAttribute("type", "text");
+
+            tempCommentCancelBtn.style.display = "none";
+            tempCommentEditBtn.style.display = "none";
+            tempCommentBox2.innerHTML = "";
+
+            tempCommentBox2.append(tempModifyText);
+            tempModifyText.after(tempModifyBtn);
+            tempModifyBtn.after(tempModifyCancelBtn);
+
+            tempModifyBtn.onclick = async function () {
+              tempCommentText.innerHTML = tempModifyText.value;
+              tempModifyBtn.style.display = "none";
+              tempModifyCancelBtn.style.display = "none";
+              tempCommentCancelBtn.style.display = "block";
+              tempCommentEditBtn.style.display = "block";
+              tempCommentBox2.innerHTML =
+                (await uploadUser(infoId.value)) + " : " + tempModifyText.value;
+              tempCommentBox2.append(tempCommentEditBtn);
+              tempCommentEditBtn.after(tempCommentCancelBtn);
+            };
+          };
+        } catch (err) {
+          console.log(err);
+        }
+      };
     });
   } catch (err) {
     console.log(err);

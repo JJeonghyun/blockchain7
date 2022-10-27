@@ -109,6 +109,7 @@ app.post("/api/board/add", (req, res) => {
     status: 200,
     data: "정상 입력 완료",
     uptime: boardList[req.body.index].uptime,
+    idx: req.body.index,
   });
 });
 app.post("/api/board/delete", (req, res) => {
