@@ -20,7 +20,16 @@ module.exports = class Board extends Sequelize.Model {
     );
   }
   static associate(db) {
-    db.Board.belongsTo(db.User, { foreignKey: "user_id", targetKey: "id" });
-    db.Board.hasMany(db.Comment, { foreignKey: "board_id", sourceKey: "id" });
+    // 관계 맺기
+    db.Board.belongsTo(db.User, {
+      // 어디에 속해 있는지
+      foreignKey: "user_id", // 상대와 같은 값으로 (컬럼이 여기에 추가 됨)
+      targetKey: "id",
+    }); // 어떠한 컬럼 값을 가져올지
+    db.Board.hasMany(db.Comment, {
+      // 무엇을 갖고 있는지
+      foreignKey: "board_id", // 상대와 같은 값으로(여기에 추가되지 않음)
+      sourceKey: "id",
+    }); // 어떠한 컬럼 값을 보낼지
   }
 };
