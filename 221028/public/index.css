@@ -1,3 +1,6 @@
 #board-list {
   padding-left: 20px;
 }
+#sign-out-btn {
+  display: none;
+}

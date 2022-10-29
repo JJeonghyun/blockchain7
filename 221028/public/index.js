@@ -21,7 +21,7 @@ async function getList() {
 
       boardTitle.innerText = item.title;
       boardText.innerText = item.text;
-      boardDelete.innerText = "Delete";
+      boardDelete.innerText = "Board Delete";
       boardDelete.onclick = async function () {
         try {
           await axios.delete("/api/board/delete?id=" + item.id); // get과 마찬가지로 req.body로 못보낸다
@@ -30,7 +30,7 @@ async function getList() {
           console.log(err);
         }
       };
-      boardUpdate.innerText = "Update";
+      boardUpdate.innerText = "Board Update";
       boardUpdate.onclick = async function () {
         try {
           await axios.put("/api/board/update", {
@@ -42,6 +42,13 @@ async function getList() {
           console.log(err);
         }
       };
+
+      commentAddBtn.onclick = function () {};
+
+      formCommentText.setAttribute("placeholder", "Input Comment");
+      commentAddBtn.innerText = "Comment Add";
+      commentDelete.innerText = "Comment Delete";
+      commentUpdate.innerText = "Comment Update";
 
       boardItem.append(boardTitle);
       boardItem.append(boardText);
@@ -94,8 +101,11 @@ document.forms["sign-in"].onsubmit = async function (e) {
       id: e.target["user-id"].value,
       pw: e.target["user-pw"].value,
     });
+    console.log(result);
     console.log(result.data);
+    console.log(result.data.name);
     getList();
+    document.getElementById("sign-out-btn").style.display = "block";
   } catch (err) {
     console.error(err.response.data.message);
   }
@@ -104,6 +114,7 @@ document.getElementById("sign-out-btn").onclick = async function (e) {
   try {
     await axios.get("/api/user/logout");
     getList();
+    document.getElementById("sign-out-btn").style.display = "none";
   } catch (err) {
     console.error(err.response.data.message);
   }

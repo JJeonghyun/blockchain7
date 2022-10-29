@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
     // attributes << 알아보자
     order: [["id", "DESC"]], // 정렬
     limit: 5, // 최대 개수
-    offset: 3, // 시작 위치
+    // offset: 3, // 시작 위치
   });
   res.send({ list: tempBoard });
 });
@@ -54,7 +54,7 @@ router.post("/add", async (req, res) => {
   //     title: req.body.title,
   //     text: req.body.text,
   //   });
-  res.end();
+  res.end("data");
 });
 router.put("/update", async (req, res) => {
   await Board.update(
