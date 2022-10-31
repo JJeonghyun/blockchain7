@@ -43,12 +43,25 @@ async function getList() {
         }
       };
 
-      commentAddBtn.onclick = function () {};
-
+      formCommentAdd.setAttribute("id", "comment-upload");
+      formCommentText.setAttribute("type", "text");
       formCommentText.setAttribute("placeholder", "Input Comment");
       commentAddBtn.innerText = "Comment Add";
       commentDelete.innerText = "Comment Delete";
       commentUpdate.innerText = "Comment Update";
+
+      document.forms["comment-upload"].onsubmit = async function (e) {
+        e.preventDefault();
+
+        try {
+        } catch (err) {
+          console.error(err.response.data.message);
+        }
+      };
+
+      // commentDelete.onclick = function () {};
+
+      // commentUpdate.onclick = function () {};
 
       boardItem.append(boardTitle);
       boardItem.append(boardText);
