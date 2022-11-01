@@ -1,0 +1,22 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="login-box-container">
+      <input type="text" id="user-id" autocomplete="off" />
+      <button id="login-btn">로그인</button>
+    </div>
+    <div id="chat-box-container">
+      <input type="text" id="chat-text" autocomplete="off" />
+      <button id="send-chat">보내기</button>
+    </div>
+    <div id="chat-text-container"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
