@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EventComp from "./EventComp";
+import FooterComp from "./FooterComp";
 
 class BodyComp extends React.Component {
   constructor(props) {
@@ -42,11 +43,14 @@ class BodyComp extends React.Component {
             alt=""
           />
         </IconBox>
-        <IconText>MONDAY KIZ COMPANY</IconText>
+        <IconText>
+          <span>MONDAY KIZ COMPANY</span>
+        </IconText>
         <EventContainer>
           <EventComp />
+          <EventComp />
         </EventContainer>
-        <div className="body-item"></div>
+        <FooterComp />
       </div>
     );
   }
@@ -91,13 +95,14 @@ const BodySecond = styled.div`
 const IconBox = styled.div`
   width: 60px;
   margin: 0 auto;
+  padding: 15px 0;
   & > img {
     width: 100%;
   }
 `;
 
 const IconText = styled.div`
-  width: 40%;
+  width: fit-content;
   margin: 0 auto;
   font-size: 2.5rem;
   color: #333333;
@@ -105,7 +110,7 @@ const IconText = styled.div`
 `;
 
 const EventContainer = styled.div`
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
 `;
 

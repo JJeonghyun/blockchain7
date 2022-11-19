@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import Artist from "./Artist";
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,8 +10,14 @@ class Header extends React.Component {
   render() {
     return (
       <HeaderFlex>
-        <div>MONDAYKIZ COMPANY</div>
-        <div>ARTIST</div>
+        <div>
+          {/* <Link to="/">MONDAYKIZ COMPANY</Link> */}
+          MONDAYKIZ COMPANY
+        </div>
+        <div>
+          {/* <Link to="/Artist">ARTIST</Link> */}
+          ARTIST
+        </div>
         <div>VIDEO</div>
         <div>SCHEDULE</div>
         <div>CONTACT</div>
@@ -45,6 +53,10 @@ const HeaderFlex = styled.div`
     &:nth-child(n + 1):hover {
       color: black;
     }
+  }
+  & > div a {
+    text-decoration: none;
+    color: black;
   }
 `;
 // & : 현재 선택자(태그?)

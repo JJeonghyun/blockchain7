@@ -5,17 +5,28 @@ class EventComp extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <FlexContainer>
         <div>
-          <img src="./capture1.jpg" alt="didi" />
+          <img src="imgs/capture1.jpg" alt="didi" />
         </div>
-        <div>asd</div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <img src="imgs/capture2.jpg" alt="didi" />
+        </div>
+        <div>
+          <img src="imgs/capture3.jpg" alt="didi" />
+        </div>
+        <div>
+          <img src="imgs/capture4.jpg" alt="didi" />
+        </div>
+        <div>
+          <img src="imgs/capture1.jpg" alt="didi" />
+        </div>
+        <div>
+          <img src="imgs/capture6.jpg" alt="didi" />
+        </div>
       </FlexContainer>
     );
   }
@@ -28,6 +39,7 @@ const FlexContainer = styled.div`
   width: 100%;
   & > div {
     width: 16.6%;
+    padding: 5px;
   }
   & > div > img {
     width: 100%;
