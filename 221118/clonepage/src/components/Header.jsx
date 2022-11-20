@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Artist from "./Artist";
 
 class Header extends React.Component {
@@ -11,12 +11,10 @@ class Header extends React.Component {
     return (
       <HeaderFlex>
         <div>
-          {/* <Link to="/">MONDAYKIZ COMPANY</Link> */}
-          MONDAYKIZ COMPANY
+          <Link to="/">MONDAYKIZ COMPANY</Link>
         </div>
         <div>
-          {/* <Link to="/Artist">ARTIST</Link> */}
-          ARTIST
+          <Link to="/Artist">ARTIST</Link>
         </div>
         <div>VIDEO</div>
         <div>SCHEDULE</div>
