@@ -10,23 +10,28 @@ class Header extends React.Component {
   render() {
     return (
       <HeaderFlex>
-        <div>
+        <LinkComp>
           <Link to="/">MONDAYKIZ COMPANY</Link>
-        </div>
-        <div>
+        </LinkComp>
+        <LinkComp>
           <Link to="/Artist">ARTIST</Link>
-        </div>
-        <div>VIDEO</div>
-        <div>SCHEDULE</div>
-        <div>CONTACT</div>
-        <div>EVERGROW</div>
+        </LinkComp>
+        <LinkComp>
+          <Link to="/video">VIDEO</Link>
+        </LinkComp>
+        <LinkComp>
+          <Link to="/">SCHEDULE</Link>
+        </LinkComp>
+        <LinkComp>
+          <Link to="/">CONTACT</Link>
+        </LinkComp>
+        <LinkComp>
+          <Link to="/">EVERGROW</Link>
+        </LinkComp>
       </HeaderFlex>
     );
   }
 }
-
-// const ButtonItem = styled.button`
-// `;
 
 const HeaderFlex = styled.div`
   display: flex;
@@ -44,16 +49,25 @@ const HeaderFlex = styled.div`
       width: 25%;
       border: 4px solid black;
       font-weight: 500;
-      color: black;
       text-overflow: ellipsis;
       white-space: nowrap;
+      & > a {
+        text-decoration: none;
+        color: black;
+      }
     }
     &:nth-child(n + 1):hover {
       color: black;
     }
   }
-  & > div a {
+`;
+
+const LinkComp = styled.div`
+  & > a {
     text-decoration: none;
+    color: gray;
+  }
+  & > a:hover {
     color: black;
   }
 `;

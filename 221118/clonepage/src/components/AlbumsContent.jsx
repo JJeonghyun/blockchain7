@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import AlbumContentImg from "./AlbumContentImg";
 
-function AlbumsContent() {
-  return (
-    <AlbumsContainer>
-      <AlbumContentImg />
-    </AlbumsContainer>
-  );
+function AlbumsContent({ lineNum, imgName }) {
+  function insertAlbum() {
+    let tempArr = [];
+    for (let i = 1; i < lineNum + 1; i++) {
+      tempArr.push(<AlbumContentImg lineNum={i} imgName={imgName} />);
+    }
+    return tempArr;
+  }
+  return <AlbumsContainer>{insertAlbum()}</AlbumsContainer>;
 }
 
 const AlbumsContainer = styled.div`
@@ -26,6 +29,9 @@ const AlbumsContainer = styled.div`
       text-align: center;
       & > div {
         width: 100%;
+        font-size: 0.7rem;
+        color: #454545;
+        padding: 1px 0;
         & > img {
           width: 100%;
         }

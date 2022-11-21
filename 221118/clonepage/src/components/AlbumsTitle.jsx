@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-function AlbumsTitle() {
+function AlbumsTitle({ category, engCategory }) {
   return (
     <TitleText>
-      <div>먼데이 키즈 앨범 (Monday kiz Albums)</div>
+      <div>
+        {category} 앨범 ({engCategory} Albums)
+      </div>
     </TitleText>
   );
 }
