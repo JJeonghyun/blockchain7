@@ -40,13 +40,13 @@ function ArtistComp() {
       <ArtistImgBox />
       <LogoBox />
       <AlbumsTitle category={"먼데이 키즈"} engCategory={"Monday kiz"} />
-      <AlbumsContent lineNum={6} imgName={"album"} />
+      <AlbumsContent albumAmount={41} imgName={"album"} />
       <AlbumsTitle category={"콜라보레이션"} engCategory={"Collaboration"} />
-      <AlbumsContent lineNum={3} imgName={"collaboration"} />
+      <AlbumsContent albumAmount={19} imgName={"collaboration"} />
       <AlbumsTitle category={"피처링"} engCategory={"Featuring"} />
-      <AlbumsContent lineNum={1} imgName={"feat"} />
+      <AlbumsContent albumAmount={6} imgName={"feat"} />
       <AlbumsTitle category={"O.S.T"} engCategory={"O.S.T"} />
-      <AlbumsContent lineNum={5} imgName={"ost"} />
+      <AlbumsContent albumAmount={32} imgName={"ost"} />
     </>
   );
 }

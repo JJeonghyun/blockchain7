@@ -30,17 +30,3 @@ const AppElem = styled.div`
 `;
 
 export default App;
-
-// {(function () {
-//   if ("/" == "/")
-//     return (
-//       <BodyContainer>
-//         <BodyInnerContainer>
-//           <BodyComp />
-//         </BodyInnerContainer>
-//       </BodyContainer>
-//     );
-//   else {
-//     return <div>tq</div>;
-//   }
-// })()}

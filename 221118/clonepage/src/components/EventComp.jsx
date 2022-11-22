@@ -4,29 +4,25 @@ import styled from "styled-components";
 class EventComp extends React.Component {
   constructor(props) {
     super(props);
+    this.startNum = this.props.startNum;
+    this.endNum = this.props.endNum;
   }
 
+  insertImg(startNum, endNum) {
+    let tempArr = [];
+    for (let i = startNum; i < endNum + 1; i++) {
+      tempArr.push(
+        <div key={i}>
+          <img key={i} src={`imgs/capture${i}.jpg`}></img>
+        </div>
+      );
+    }
+    return tempArr;
+  }
   render() {
     return (
       <FlexContainer>
-        <div>
-          <img src="imgs/capture1.jpg" alt="didi" />
-        </div>
-        <div>
-          <img src="imgs/capture2.jpg" alt="didi" />
-        </div>
-        <div>
-          <img src="imgs/capture3.jpg" alt="didi" />
-        </div>
-        <div>
-          <img src="imgs/capture4.jpg" alt="didi" />
-        </div>
-        <div>
-          <img src="imgs/capture1.jpg" alt="didi" />
-        </div>
-        <div>
-          <img src="imgs/capture6.jpg" alt="didi" />
-        </div>
+        {this.insertImg(this.startNum, this.endNum)}
       </FlexContainer>
     );
   }

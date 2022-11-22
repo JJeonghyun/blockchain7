@@ -2,11 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import AlbumContentImg from "./AlbumContentImg";
 
-function AlbumsContent({ lineNum, imgName }) {
+function AlbumsContent({ albumAmount, imgName }) {
   function insertAlbum() {
+    let line = parseInt(albumAmount / 6);
+    let remain = parseInt(albumAmount % 6);
+
     let tempArr = [];
-    for (let i = 1; i < lineNum + 1; i++) {
-      tempArr.push(<AlbumContentImg lineNum={i} imgName={imgName} />);
+    for (let i = 1; i < line + 1; i++) {
+      tempArr.push(
+        <AlbumContentImg
+          key={i}
+          line={i}
+          imgName={imgName}
+          albumAmount={albumAmount}
+        />
+      );
+    }
+    if (remain) {
+      for (let i = line + 1; i < line + 2; i++) {
+        tempArr.push(
+          <AlbumContentImg
+            key={i}
+            line={i}
+            imgName={imgName}
+            albumAmount={albumAmount}
+          />
+        );
+      }
     }
     return tempArr;
   }
@@ -20,10 +42,10 @@ const AlbumsContainer = styled.div`
     width: 70%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     & > div {
-      width: 14.2%;
+      width: 13.2%;
       background-color: white;
       margin: 15px;
       text-align: center;

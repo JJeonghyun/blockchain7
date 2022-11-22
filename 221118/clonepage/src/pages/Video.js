@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import Header from "../components/Header";
 import styled from "styled-components";
+import VideoComp from "../components/VideoComp";
 
 function Video() {
   return (
@@ -12,7 +13,9 @@ function Video() {
         </HeaderInnerContainer>
       </HeaderContainer>
       <BodyContainer>
-        <BodyInnerContainer>여기는 비디오</BodyInnerContainer>
+        <BodyInnerContainer>
+          <VideoComp />
+        </BodyInnerContainer>
       </BodyContainer>
     </AppElem>
   );

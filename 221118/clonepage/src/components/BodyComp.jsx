@@ -16,9 +16,9 @@ class BodyComp extends React.Component {
             height="641"
             src="https://www.youtube.com/embed/kEpnSlMKH8Y"
             title="먼데이 키즈 - 집에 돌아가는 길 외롭다 Official Teaser MV_Monday KIz - Lonely way back home"
-            frameborder="0"
+            // frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            // allowfullscreen
           ></iframe>
         </BodyVideo>
         <BodySecond>
@@ -47,8 +47,8 @@ class BodyComp extends React.Component {
           <span>MONDAY KIZ COMPANY</span>
         </IconText>
         <EventContainer>
-          <EventComp />
-          <EventComp />
+          <EventComp startNum={1} endNum={6} />
+          <EventComp startNum={7} endNum={12} />
         </EventContainer>
         <FooterComp />
       </div>
