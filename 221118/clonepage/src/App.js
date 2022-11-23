@@ -4,6 +4,8 @@ import Artist from "./pages/Artist";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import Video from "./pages/Video";
+import Schedule from "./pages/Schedule";
+import Contact from "./pages/Contact";
 
 // import Artist from "./components/Artist";
 // BrowerRouter - URL, UI를 동기화 하는 라우터
@@ -17,9 +19,9 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/artist" element={<Artist />}></Route>
         <Route path="/video" element={<Video />}></Route>
-        {/* <Route path="/schedule" element={<Schedule />}></Route>
+        <Route path="/schedule" element={<Schedule />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/everglow" element={<Everglow />}></Route> */}
+        {/* <Route path="/everglow" element={<Everglow />}></Route> */}
       </Routes>
     </AppElem>
   );

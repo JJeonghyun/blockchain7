@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-// import Artist from "./Artist";
 
 class Header extends React.Component {
   constructor(props) {
@@ -20,10 +19,10 @@ class Header extends React.Component {
           <Link to="/video">VIDEO</Link>
         </LinkComp>
         <LinkComp>
-          <Link to="/">SCHEDULE</Link>
+          <Link to="/schedule">SCHEDULE</Link>
         </LinkComp>
         <LinkComp>
-          <Link to="/">CONTACT</Link>
+          <Link to="/contact">CONTACT</Link>
         </LinkComp>
         <LinkComp>
           <Link to="/">EVERGROW</Link>

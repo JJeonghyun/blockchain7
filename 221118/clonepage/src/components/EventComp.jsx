@@ -13,7 +13,7 @@ class EventComp extends React.Component {
     for (let i = startNum; i < endNum + 1; i++) {
       tempArr.push(
         <div key={i}>
-          <img key={i} src={`imgs/capture${i}.jpg`}></img>
+          <img key={i} src={`imgs/capture${i}.jpg`} />
         </div>
       );
     }
@@ -39,6 +39,7 @@ const FlexContainer = styled.div`
   }
   & > div > img {
     width: 100%;
+    position: relative;
   }
 `;
 

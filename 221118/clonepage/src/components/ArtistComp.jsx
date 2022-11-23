@@ -4,6 +4,7 @@ import ArtistImgBox from "./ArtistImgBox";
 import LogoBox from "./LogoBox";
 import AlbumsTitle from "./AlbumsTitle";
 import AlbumsContent from "./AlbumsContent";
+import FooterComp from "./FooterComp";
 
 function ArtistComp() {
   return (
@@ -47,6 +48,7 @@ function ArtistComp() {
       <AlbumsContent albumAmount={6} imgName={"feat"} />
       <AlbumsTitle category={"O.S.T"} engCategory={"O.S.T"} />
       <AlbumsContent albumAmount={32} imgName={"ost"} />
+      <FooterComp />
     </>
   );
 }
