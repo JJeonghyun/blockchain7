@@ -40,16 +40,17 @@ const HeaderFlex = styled.div`
   flex-wrap: wrap;
   & > div {
     width: 15%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
     color: gray;
     cursor: pointer;
     &:first-child {
-      width: 25%;
+      width: 20%;
+      min-width: 200px;
       border: 4px solid black;
       font-weight: 500;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
       & > a {
         text-decoration: none;
         color: black;

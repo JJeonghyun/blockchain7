@@ -49,6 +49,8 @@ const AlbumsContainer = styled.div`
       background-color: white;
       margin: 15px;
       text-align: center;
+      position: relative;
+
       & > div {
         width: 100%;
         font-size: 0.7rem;

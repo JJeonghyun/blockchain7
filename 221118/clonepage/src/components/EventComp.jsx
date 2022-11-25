@@ -14,6 +14,17 @@ class EventComp extends React.Component {
       tempArr.push(
         <div key={i}>
           <img key={i} src={`imgs/capture${i}.jpg`} />
+          <div key={i}>
+            <div key={i}>
+              <img key={i} src="imgs/instarImg.png" alt="asd" />
+              <div key={i}>8 days age</div>
+            </div>
+            <div key={i}>
+              인천에서도 '외롭다' 공연 티켓 오픈되었습니다. 많은 관심
+              부탁드립니다
+            </div>
+            <div key={i}>read more</div>
+          </div>
         </div>
       );
     }
@@ -36,10 +47,43 @@ const FlexContainer = styled.div`
   & > div {
     width: 16.6%;
     padding: 5px;
-  }
-  & > div > img {
-    width: 100%;
     position: relative;
+    &:hover > div:last-child {
+      opacity: 1;
+    }
+    & > img {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    & > div {
+      opacity: 0;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: calc(100% - 10px);
+      height: calc(100% - 15px);
+      & > div {
+        width: 100%;
+        color: white;
+        font-size: 12px;
+        padding: 0 15px;
+        margin-bottom: 10px;
+        &:first-child {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 80%;
+          padding-top: 10px;
+          & > img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
   }
 `;
 

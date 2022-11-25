@@ -10,7 +10,7 @@ function AlbumContentImg({ line, imgName, albumAmount }) {
             <div key={i}>
               <img src={`imgs/${imgName}Img${i}.jpg`} alt="didi" />
             </div>
-            <div>
+            <div key={i}>
               {i}집 {imgName}
             </div>
           </div>
@@ -23,7 +23,7 @@ function AlbumContentImg({ line, imgName, albumAmount }) {
             <div key={i}>
               <img src={`imgs/${imgName}Img${i}.jpg`} alt="didi" />
             </div>
-            <div>
+            <div key={i}>
               {i}집 {imgName}
             </div>
           </div>

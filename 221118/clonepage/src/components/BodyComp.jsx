@@ -41,9 +41,7 @@ class BodyComp extends React.Component {
             alt=""
           />
         </IconBox>
-        <IconText>
-          <span>MONDAY KIZ COMPANY</span>
-        </IconText>
+        <IconText>MONDAY KIZ COMPANY</IconText>
         <EventContainer>
           <EventComp startNum={1} endNum={6} />
           <EventComp startNum={7} endNum={12} />
@@ -102,7 +100,7 @@ const IconBox = styled.div`
 const IconText = styled.div`
   width: fit-content;
   margin: 0 auto;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #333333;
   letter-spacing: 10px;
 `;
