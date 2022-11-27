@@ -19,36 +19,67 @@ export const OfficeContext = createContext();
 
 const reducer = (state, action) => {
   // reducer : 작업해서 state에 정의하는 녀석
+  console.log(action.payload);
   switch (action.type) {
     case "주민등록등본":
-      if (action.payload.pay < 500) return "돈 부족";
+      if (action.payload.pay.balance < 500) return "금액 부족";
       else {
         action.payload.pay.setBalance(action.payload.pay.balance - 500);
-        return "주민등록등본이 발급되었습니다.";
+        return "주민등록등본이 발급되었습니다";
       }
     case "주민등록초본":
-      if (action.payload.pay < 700) return "돈 부족";
-      else return "주민등록초본이 발급되었습니다.";
+      if (action.payload.pay.balance < 700) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 700);
+        return "주민등록초본이 발급되었습니다";
+      }
     case "건묵출대장":
-      return "요청이 없습니다.";
+      if (action.payload.pay.balance < 2000) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 2000);
+        return "건축물대장이 발급되었습니다";
+      }
     case "지방세납세증명":
-      return "요청이 없습니다.";
-    case "윤전면허 정보":
-      return "요청이 없습니다.";
+      if (action.payload.pay.balance < 1500) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 1500);
+        return "지방세납세증명서이 발급되었습니다";
+      }
+    case "운전면허 정보":
+      if (action.payload.pay.balance < 100) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 100);
+        return "운전면허정보증이 발급되었습니다";
+      }
     case "전입신고":
-      return "요청이 없습니다.";
+      if (action.payload.pay.balance < 200) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 200);
+        return "전입신고서가 발급되었습니다";
+      }
     case "코로나19 격리통지서":
-      return "요청이 없습니다.";
+      if (action.payload.pay.balance < 500) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 500);
+        return "코로나19 격리통지서가 발급되었습니다";
+      }
     case "병적증명서 발급":
-      return "요청이 없습니다.";
+      if (action.payload.pay.balance < 1500) return "금액 부족";
+      else {
+        action.payload.pay.setBalance(action.payload.pay.balance - 1500);
+        return "병적증명서가 발급되었습니다";
+      }
     default:
-      return "요청이 없습니다.";
+      return "알맞지 않는 발급서 입니다";
   }
 };
 
 function ReducerTest({ children }) {
   // children은 컴포넌트의 자식 컴포넌트(엘리먼트)이다.
-  const [result, requestDispatch] = useReducer(reducer, {});
+  const [result, requestDispatch] = useReducer(
+    reducer,
+    "신청하실 발급서를 클릭해주세요"
+  );
   // const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <OfficeContext.Provider value={{ result, requestDispatch }}>

@@ -10,7 +10,7 @@
 // reducer : dispatch가 전달한 데이터로 작업을 진행한 후 결과를 state에 정의
 
 import { useReducer, useState } from "react";
-import { reducer } from "./reducerTest";
+import { reducer } from "./reducerTest.js";
 
 function ReducerTest2() {
   const [count, setCount] = useState(0);

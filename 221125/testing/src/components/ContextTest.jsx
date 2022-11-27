@@ -4,9 +4,7 @@
 // 특히, 상태 값은 무조건 지역 스코프에 포험되어 외부로 나갈 수 없다.
 // 전역 스코프에서 상태값을 쓰고 싶다. => Context라는 녀석이다
 
-import { useState } from "react";
-import { useContext, Component } from "react";
-import { createContext } from "react";
+import { useState, useContext, Component, createContext } from "react";
 
 const TestContext = createContext();
 // 전역 변수를 저장할 공간을 생성한다.
