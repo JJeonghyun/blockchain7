@@ -48,15 +48,16 @@ export default Office;
 
 const CertificateBtnBox = styled.div`
   padding: 0 10px;
-  display: flex;
+  display: inline-flex;
   justify-content: flex-start;
   align-items: center;
-  width: 250px;
+  width: fit-content;
   flex-wrap: wrap;
   & > button {
     cursor: pointer;
-    width: 200px;
-    padding: 0 5px;
+    width: fit-content;
+    padding: 5px 10px;
     margin: 0 10px;
+    font-size: 1rem;
   }
 `;

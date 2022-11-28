@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.jjh {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  animation: moving 3s infinite;
+}
+.btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: deeppink;
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.jjanggu {
+  display: flex;
+  align-items: cetner;
+  justify-content: center;
+}
+@keyframes moving {
+  15% {
+    color: aquamarine;
+  }
+  30% {
+    color: violet;
+  }
+  45% {
+    color: yellow;
+  }
+
+  60% {
+    color: crimson;
+  }
+  75% {
+    color: deeppink;
+  }
+  90% {
+    color: sandybrown;
+  }
+  100% {
+    color: blue;
+  }
+}
