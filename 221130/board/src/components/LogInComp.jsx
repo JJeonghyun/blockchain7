@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const LogInComp = ({ onClick }) => {
+const LogInComp = ({ onClick, item }) => {
   const [userId, setId] = useState("");
   const [userPw, setPw] = useState("");
   return (
@@ -14,7 +14,7 @@ const LogInComp = ({ onClick }) => {
         }}
       />
       <input
-        type={"text"}
+        type={"password"}
         placeholder={"PW"}
         value={userPw}
         onInput={(e) => {
@@ -23,11 +23,15 @@ const LogInComp = ({ onClick }) => {
       />
       <button
         onClick={() => {
-          onClick();
+          onClick(userId, userPw);
         }}
       >
         로그인
       </button>
+      {/* {item.map((item, index) => (
+        <div key={`item-${index}`}>{item.userId}</div>
+      ))} */}
+      <div>{item.userId} 님 어서오세요. </div>
     </div>
   );
 };

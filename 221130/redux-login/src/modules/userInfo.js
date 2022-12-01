@@ -1,8 +1,8 @@
 // 로그인한 유저의 정보
 
 const TYPE = {
-  LOGIN: "users/login",
-  LOGOUT: "users/logout",
+  LOGIN: "userInfo/login",
+  LOGOUT: "userInfo/logout",
 };
 
 const logIn = (userId, userPw, userDB) => ({
@@ -23,7 +23,6 @@ export const reducer = (state = initialize, action) => {
 
   switch (type) {
     case TYPE.LOGIN:
-      console.log(payload.userDB);
       const tempUser = payload.userDB.find(
         (item) => item.userId === payload.userId
       );

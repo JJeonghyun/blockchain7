@@ -6,9 +6,6 @@ const RegistComponent = ({ onClick }) => {
   const [userId, setId] = useState("");
   const [userPw, setPw] = useState("");
   const [userName, setName] = useState("");
-
-  console.log("RegistComponent", onClick);
-
   return (
     <RegistBox>
       <input
@@ -37,9 +34,6 @@ const RegistComponent = ({ onClick }) => {
       />
       <button
         onClick={() => {
-          console.log("button onClick");
-          // 4. 사용자가 버튼을 클릭 했을 때, onClick함수를 호출 한다
-          // 호출 시 매개변수로 userId, userPw, userName을 전달한다
           onClick(userId, userPw, userName);
         }}
       >

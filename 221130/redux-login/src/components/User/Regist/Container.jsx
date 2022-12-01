@@ -1,5 +1,6 @@
 // import {useDispatch} from "react-redux"
 import store from "../../../modules/store";
+import axios from "axios";
 
 import RegistComponent from "./Component";
 import { action } from "../../../modules/usersDB";
@@ -10,7 +11,6 @@ const RegistContainer = () => {
   // 1. onClick을 선언한다.
   const onClick = (userId, userPw, userName) => {
     // 5. onClick가 매개변수 3개를 포함하여 호출 받았다
-    console.log("RegistContainer onclick => dispatch");
     // 6. store의 dispatch를 호출, 매개변수 action의 regist를 호출해서 return값을 전달
     // dispatch 보다 action의 regist호출이 먼저 실행 된다.
     // 6-1. action의 regist를 호출, 매개변수 3개 전달
@@ -19,9 +19,12 @@ const RegistContainer = () => {
     // 10. dispatch를 호출 해서 action.regist의 return값을 매개변수로 전달
     // 11. dispatch는 reducer를 호출 하며 액션을 전달
     store.dispatch(action.regist(userId, userPw, userName));
+    axios.post("http://localhost:8080/api/user/regist", {
+      userId,
+      userPw,
+      userName,
+    });
   };
-  console.log("RegistContainer", onClick);
-
   // 2. 선언된 onClick을 Comp로 props로 전달한다
   return <RegistComponent onClick={onClick} />;
 };

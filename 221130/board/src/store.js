@@ -1,9 +1,28 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { reducer } from "./modules/userDB";
-import { initialize } from "./modules/userDB";
+import {
+  reducer as userInfoReducer,
+  initialize as userInfoIni,
+} from "./modules/userInfo";
+import {
+  reducer as userDBReducer,
+  initialize as userDBIni,
+} from "./modules/userDB";
 
-const store = createStore(reducer, initialize, composeWithDevTools());
+import {
+  initialize as boardIni,
+  reducer as boardReducer,
+} from "./modules/board";
+
+const store = createStore(
+  combineReducers({
+    userInfo: userInfoReducer,
+    userDB: userDBReducer,
+    board: boardReducer,
+  }),
+  { userInfo: userInfoIni, userDB: userDBIni, board: boardIni },
+  composeWithDevTools()
+);
 
 export default store;

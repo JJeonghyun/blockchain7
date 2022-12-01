@@ -38,7 +38,6 @@ const RegistComp = ({ onClick }) => {
       >
         회원가입
       </button>
-      <div>{userId}</div>
     </div>
   );
 };
