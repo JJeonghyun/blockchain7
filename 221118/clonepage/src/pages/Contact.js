@@ -1,16 +1,17 @@
 import "../App.css";
-import Header from "../components/Header";
+import HeaderContainer from "../components/Header/Container";
+
 import styled from "styled-components";
-import FooterComp from "../components/FooterComp";
+import FooterContainer from "../components/Footer/Container";
 
 function Contact() {
   return (
-    <AppElem>
-      <HeaderContainer>
-        <HeaderInnerContainer>
-          <Header />
-        </HeaderInnerContainer>
-      </HeaderContainer>
+    <MainBox>
+      <div>
+        <div>
+          <HeaderContainer />
+        </div>
+      </div>
       <BodyContainer>
         <BodyInnerContainer>
           <div>
@@ -39,29 +40,27 @@ function Contact() {
               </div>
             </div>
           </div>
-          <FooterComp />
+          <FooterContainer />
         </BodyInnerContainer>
       </BodyContainer>
-    </AppElem>
+    </MainBox>
   );
 }
 
-const AppElem = styled.div`
+const MainBox = styled.div`
   width: 100%;
-`;
-
-const HeaderContainer = styled.div`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: white;
-  z-index: 3;
-`;
-
-const HeaderInnerContainer = styled.div`
-  width: 60%;
-  margin: 0 auto;
-  padding: 30px 0;
+  & > div:first-child {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 3;
+    & > div {
+      width: 60%;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+  }
 `;
 
 const BodyContainer = styled.div`

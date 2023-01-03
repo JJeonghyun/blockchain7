@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-function AlbumsTitle({ category, engCategory }) {
+const AlbumTitleComp = ({ category, engCategory }) => {
   return (
     <TitleText>
       <div>
@@ -9,7 +8,8 @@ function AlbumsTitle({ category, engCategory }) {
       </div>
     </TitleText>
   );
-}
+};
+export default AlbumTitleComp;
 
 const TitleText = styled.div`
   width: 100%;
@@ -22,4 +22,3 @@ const TitleText = styled.div`
     padding: 10px 0;
   }
 `;
-export default AlbumsTitle;

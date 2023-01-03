@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
-function ArtistImgBox() {
+const ImgBoxComponent = () => {
   const [imgElem, setImgElem] = useState([2, 3, 4, 5]);
 
   return (
@@ -17,7 +17,9 @@ function ArtistImgBox() {
       ))}
     </ImgFlex>
   );
-}
+};
+
+export default ImgBoxComponent;
 
 const ImgFlex = styled.div`
   width: 65%;
@@ -34,5 +36,3 @@ const ImgFlex = styled.div`
     }
   }
 `;
-
-export default ArtistImgBox;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EventComp from "./EventComp";
-import FooterComp from "./FooterComp";
+import FooterContainer from "./Footer/Container";
 
 class BodyComp extends React.Component {
   constructor(props) {
@@ -46,14 +46,14 @@ class BodyComp extends React.Component {
           <EventComp startNum={1} endNum={6} />
           <EventComp startNum={7} endNum={12} />
         </EventContainer>
-        <FooterComp />
+        <FooterContainer />
       </div>
     );
   }
 }
 
 const BodyVideo = styled.div`
-  width: 65%;
+  width: fit-content;
   margin: 0 auto;
 `;
 

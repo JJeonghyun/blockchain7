@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-function VideoComp() {
+const VideoComponent = () => {
   return (
     <>
       <TopTitle>
@@ -149,7 +148,9 @@ function VideoComp() {
       </EtcBox>
     </>
   );
-}
+};
+
+export default VideoComponent;
 
 const TopTitle = styled.div`
   width: 65%;
@@ -199,5 +200,3 @@ const EtcBox = styled.div`
     }
   }
 `;
-
-export default VideoComp;
