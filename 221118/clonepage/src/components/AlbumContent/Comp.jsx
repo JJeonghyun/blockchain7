@@ -7,11 +7,13 @@ const AlbumContentComp = ({ imgName, tempArr }) => {
         {tempArr.map((item, index) => (
           <div key={`album-box${index}`}>
             <div key={`img-box${index}`}>
-              <img
-                key={`img-${index}`}
-                src={`imgs/${imgName}Img${index + 1}.jpg`}
-                alt="didi"
-              />
+              {
+                <img
+                  key={`img-${index}`}
+                  src={`imgs/${imgName}Img${index + 1}.jpg`}
+                  alt="didi"
+                />
+              }
             </div>
             <div key={`text-box${index}`}>
               {index + 1}집 {imgName}

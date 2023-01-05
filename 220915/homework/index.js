@@ -35,7 +35,7 @@ numDivArr.forEach((elem, index) => {
 });
 
 // 게임 대기 화면은 큰 원판이 돌아가며, 비교적 느린 속도로 가위바위보 순환
-//시작 버튼을 눌렀을 때 큰 원판을 정지, 가위바위보 반복 speed Up
+//시작 버튼을 눌렀을 때 큰 원판을 정지, 가위바위보  speed Up
 const start = function () {
   if (checkButton >= 1) {
     // 연달아 게임시작 버튼 누르는 거 방지
