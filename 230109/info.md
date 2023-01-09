@@ -6,6 +6,8 @@
 # jest란
 
 - Facebook에서 개발한 테스트 라이브러리(자칭 프레임워크)
+- node --experimental-vm-modules node_modules/jest/bin/jest.js
+  -ES6(type:module) 사용시 위 명령어로 실행
 
 # Block Header란
 
